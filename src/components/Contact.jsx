@@ -114,7 +114,6 @@ function Contact() {
       <motion.div
         initial={{ y: -30, opacity: 0, scale: 0.6 }}
         whileInView={{ y: 0, opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col items-center"
       >
@@ -130,12 +129,11 @@ function Contact() {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-6xl w-full mx-auto gap-8">
+      <div className="grid  lg:grid-cols-3 max-w-6xl w-full mx-auto gap-8">
         {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="w-full lg:col-span-2"
         >
@@ -195,7 +193,7 @@ function Contact() {
                   required
                   disabled={isLoading}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="your@email.com"
+                  placeholder="Your email"
                 />
               </div>
 
@@ -215,7 +213,7 @@ function Contact() {
                   disabled={isLoading}
                   rows={6}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Tell me about your project..."
+                  placeholder="Write your message..."
                 />
               </div>
 
@@ -247,35 +245,32 @@ function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="space-y-6"
         >
           {/* Contact Info */}
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl p-8">
-            <h3 className="text-xl font-bold font-poppins mb-4 text-white">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl p-6">
+            <h3 className="text-xl font-bold font-poppins mb-5 text-white ">
               Contact Information
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {contactInfo.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <a
+                  <div
                     key={i}
-                    className="flex items-center justify-start gap-2 group hover:bg-white/5 p-3 rounded-xl transition-all"
+                    className="flex items-center justify-start gap-2 group rounded-xl transition-all cursor-default"
                   >
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-white/70 text-sm font-poppins">
-                        {item.title}
-                      </p>
-                      <p className="text-white font-sm font-poppins group-hover:text-purple-400 transition-colors">
+                      <p className="text-white/70 text-sm ">{item.title}</p>
+                      <p className="text-white font-sm group-hover:text-purple-400 transition-colors ">
                         {item.value}
                       </p>
                     </div>
-                  </a>
+                  </div>
                 );
               })}
             </div>
