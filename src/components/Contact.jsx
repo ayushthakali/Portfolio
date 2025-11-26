@@ -123,7 +123,7 @@ function Contact() {
           </h2>
           <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
         </div>
-        <p className="text-white/70 text-lg mt-6 font-poppins max-w-2xl">
+        <p className="text-white/70 text-lg mt-6 font-poppins max-w-2xl text-center">
           I'm always interested in hearing about new opportunities,
           collaborations, and innovative projects.
         </p>

@@ -45,7 +45,7 @@ function Navbar() {
     <motion.nav
       animate={{ y: showNav || showNavOnLink ? 0 : -120 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl "
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[85%] max-w-5xl mx-auto"
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
