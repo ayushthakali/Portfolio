@@ -54,6 +54,7 @@ function Education() {
         <motion.div
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 2, ease: "easeInOut" }}
           className="absolute origin-top left-8 md:left-1/2 -top-6 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"
         />

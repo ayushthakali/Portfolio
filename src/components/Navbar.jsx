@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import {  Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-scroll";
 
@@ -13,7 +13,7 @@ function Navbar() {
     { name: "Home" },
     { name: "Education" },
     { name: "Skills" },
-    { name: "Projects" },
+    { name: "Portfolio" },
     { name: "Contact" },
   ];
 
