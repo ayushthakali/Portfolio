@@ -8,7 +8,7 @@ function Education() {
       icon: GraduationCap,
       date: "2021-2025 AD",
       college: "Kathmandu Engineering College (Tribhuwan University)",
-      grades: "74.08%",
+      grades: "74.24%",
     },
     {
       title: "HSEC in Science",
