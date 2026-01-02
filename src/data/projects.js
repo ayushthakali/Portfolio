@@ -33,6 +33,21 @@ export const projects = [
   },
   {
     id: 3,
+    title: "Receipt AI – AI-Powered Receipt Management",
+    description:
+      "An intelligent receipt management system that automatically extract, categorize, and organize financial documents with multi-company support.",
+    image: "/projects/receiptAi.png",
+    tags: ["Next.js", "TailwindCSS", "MongoDB", "Google OAuth", "JWT"],
+    github: "https://github.com/ayushthakali",
+    features: [
+      "AI-powered document scanning and data extraction",
+      "Multi-company management system",
+      "Google OAuth authentication with JWT",
+      "AI assistant chat for document insights",
+    ],
+  },
+  {
+    id: 4,
     title: "HisabKitab – Expense Tracker",
     description:
       "A simple and responsive web application for tracking personal expenses, built with ReactJS and Tailwind CSS.",
@@ -47,7 +62,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "DapsBid – Decentralized Voting Web App",
     description:
       "A secure and transparent decentralized web application for online voting, built using React for the frontend and styled with Tailwind CSS.",
@@ -62,7 +77,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Authentication App – JWT & Bcrypt",
     description:
       "A secure authentication system with React frontend and Node.js/Express backend, featuring JWT-based login and password hashing.",

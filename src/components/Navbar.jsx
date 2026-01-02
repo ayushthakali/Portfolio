@@ -79,7 +79,7 @@ function Navbar() {
                 duration={800}
                 onClick={handleClick}
               >
-                <div className="font-poppins font-light px-1 py-2 text-lg tracking-wide cursor-pointer relative  after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full hover:-translate-y-0.5 transition-transform duration-300">
+                <div className="font-poppins font-light px-1 py-2 text-lg tracking-wide cursor-pointer relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full hover:-translate-y-0.5 transition-transform duration-300">
                   {item.name}
                 </div>
               </Link>

@@ -100,9 +100,12 @@ function Hero() {
               >
                 <Download className="w-5 h-5" /> Download Resume
               </a>
-              <button className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full font-poppins font-semibold text-white hover:bg-white/20 transition-all duration-300 flex gap-2 items-center">
+              <a
+                href="#Contact"
+                className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full font-poppins font-semibold text-white hover:bg-white/20 transition-all duration-300 flex gap-2 items-center"
+              >
                 <MdPhone className="w-5 h-5" /> Start a Conversation
-              </button>
+              </a>
             </motion.div>
           </motion.div>
 
