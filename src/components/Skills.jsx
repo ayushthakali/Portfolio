@@ -118,7 +118,7 @@ function Skills() {
       <motion.div
         initial={{ y: -30, opacity: 0, scale: 0.6 }}
         whileInView={{ y: 0, opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col items-center "
       >
@@ -136,6 +136,7 @@ function Skills() {
         variants={parentVariant}
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         className="max-w-6xl w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
       >
         {skills.map((skill, index) => {
@@ -145,6 +146,7 @@ function Skills() {
               key={index}
               variants={childVariant}
               whileHover={{ scale: 1.05, y: -10 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.2 }}
               className="group"
             >

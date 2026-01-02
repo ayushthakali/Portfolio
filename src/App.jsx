@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <main className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 font-poppins">
+    <main className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 font-poppins overflow-hidden" >
       <Navbar />
       <Hero />
       <Education />

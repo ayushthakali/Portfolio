@@ -114,11 +114,12 @@ function Contact() {
       <motion.div
         initial={{ y: -30, opacity: 0, scale: 0.6 }}
         whileInView={{ y: 0, opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col items-center"
       >
         <div>
-          <h2 className="text-white text-5xl md:text-6xl font-bold font-poppins mb-4">
+          <h2 className="text-white text-4xl md:text-6xl font-bold text-center font-poppins mb-4">
             Let's Connect
           </h2>
           <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
