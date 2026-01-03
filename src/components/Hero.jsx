@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Download, Code, Laptop, Palette } from "lucide-react";
 import { MdPhone } from "react-icons/md";
+import { Link } from "react-scroll";
 
 function Hero() {
   const highlights = [
@@ -100,12 +101,19 @@ function Hero() {
               >
                 <Download className="w-5 h-5" /> Download Resume
               </a>
-              <a
-                href="#Contact"
-                className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full font-poppins font-semibold text-white hover:bg-white/20 transition-all duration-300 flex gap-2 items-center"
+              <Link
+                to="Contact"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={800}
+                className="px-8 py-3 bg-white/10
+                backdrop-blur-md border border-white/20 rounded-full
+                font-poppins font-semibold text-white hover:bg-white/20
+                transition-all duration-300 flex gap-2 items-center"
               >
                 <MdPhone className="w-5 h-5" /> Start a Conversation
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 
