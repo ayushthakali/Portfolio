@@ -95,7 +95,7 @@ function Hero() {
               className="flex flex-wrap gap-4 justify-center lg:justify-start text-sm"
             >
               <a
-                href="/Ayush_Resume.pdf"
+                href="/Ayush_CV.pdf"
                 download
                 className="px-8 py-3 bg-gradient-to-r from-[#5227FF] to-[#FF9FFC] rounded-full font-poppins font-semibold text-white hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#5227FF]/50 flex gap-2 items-center"
               >

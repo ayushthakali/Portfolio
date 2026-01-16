@@ -190,7 +190,7 @@ function Portfolio() {
                     className="h-full w-full object-cover"
                   />
                   {/* Overlay on hover */}
-                  <div className="hidden sm:flex absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="hidden sm:flex absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300  items-center justify-center">
                     <a
                       href={cert.credentialUrl}
                       target="_blank"
@@ -206,7 +206,7 @@ function Portfolio() {
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all transform hover:scale-110"
+                      className="w-full h-full"
                     />
                   </div>
                 </div>
