@@ -5,8 +5,8 @@ import { Link } from "react-scroll";
 
 function Hero() {
   const highlights = [
-    { icon: Code, text: "React Developer" },
-    { icon: Laptop, text: "Responsive Design" },
+    { icon: Code, text: "MERN / Next.js Stack" },
+    { icon: Laptop, text: "REST APIs & Auth Flows" },
     { icon: Palette, text: "Modern UI/UX" },
   ];
 
