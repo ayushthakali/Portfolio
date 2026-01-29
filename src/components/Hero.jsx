@@ -49,7 +49,7 @@ function Hero() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="font-poppins text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 mb-4"
             >
-              Web Developer
+              Full Stack Developer
             </motion.p>
 
             {/* Description */}
@@ -59,9 +59,11 @@ function Hero() {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="font-poppins text-justify text-base sm:text-base text-white/60 max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed"
             >
-              Passionate about creating beautiful, functional web experiences. I
-              transform ideas into elegant digital solutions with clean code and
-              modern design principles. Always learning, always building.
+              Full Stack Developer with hands-on experience building scalable
+              web applications using React, Next.js, Node.js, and Express.
+              Focused on clean architecture, authentication workflows, database
+              integration, and performance-driven solutions across frontend and
+              backend.
             </motion.p>
 
             {/* Highlights */}
@@ -95,7 +97,7 @@ function Hero() {
               className="flex flex-wrap gap-4 justify-center lg:justify-start text-sm"
             >
               <a
-                href="/Ayush_CV.pdf"
+                href="/Ayush_Resume.pdf"
                 download
                 className="px-8 py-3 bg-gradient-to-r from-[#5227FF] to-[#FF9FFC] rounded-full font-poppins font-semibold text-white hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#5227FF]/50 flex gap-2 items-center"
               >

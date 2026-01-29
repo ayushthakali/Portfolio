@@ -35,7 +35,7 @@ function Education() {
       <motion.div
         initial={{ y: -30, opacity: 0, scale: 0.6 }}
         whileInView={{ y: 0, opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center "
       >
