@@ -7,7 +7,7 @@ function Portfolio() {
   return (
     <section
       id="Portfolio"
-      className="min-h-screen w-full py-20 px-6 md:px-12 flex flex-col items-center space-y-24"
+      className="min-h-screen w-full py-20 px-6 md:px-12 flex flex-col items-center"
     >
       {/* Heading */}
       <motion.div
@@ -15,7 +15,7 @@ function Portfolio() {
         whileInView={{ y: 0, opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center"
+        className="flex flex-col items-center mb-14"
       >
         <div>
           <h2 className="text-white text-4xl md:text-5xl font-bold font-poppins mb-4">
@@ -29,7 +29,7 @@ function Portfolio() {
       </motion.div>
 
       {/* Projects Section */}
-      <div className="w-full max-w-7xl space-y-12">
+      <div className="w-full max-w-7xl space-y-12 mb-24">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
