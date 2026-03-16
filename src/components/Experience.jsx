@@ -43,13 +43,12 @@ function Experience() {
         whileInView={{ y: 0, opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center"
+        className="flex flex-col items-center"
       >
-        <h2 className="text-white text-4xl md:text-5xl font-bold font-poppins mb-4">
+        <h2 className="relative text-white text-4xl md:text-5xl font-bold font-poppins mb-4 after:absolute after-content[''] after:left-0 after:-bottom-4 after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-400 after:to-purple-500 after:rounded-full">
           Experience
         </h2>
-        <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
-        <p className="text-white/70 text-lg mt-4 font-poppins max-w-2xl mx-auto">
+        <p className="text-white/70 text-lg mt-4 font-poppins max-w-2xl text-center">
           Where I've Built Things That Matter
         </p>
       </motion.div>

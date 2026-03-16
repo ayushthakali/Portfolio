@@ -12,6 +12,7 @@ function Navbar() {
   const navItems = [
     { name: "Home" },
     { name: "Education" },
+    { name: "Experience" },
     { name: "Skills" },
     { name: "Portfolio" },
     { name: "Contact" },
