@@ -286,9 +286,9 @@ function Hero() {
               <a
                 href="/Ayush_Resume.pdf"
                 download
-                className="px-8 py-2.5 bg-gradient-to-r from-[#5227FF] to-[#FF9FFC] rounded-full font-poppins  text-white hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#5227FF]/50 flex gap-2 items-center"
+                className="px-8 py-2.5 bg-gradient-to-r from-[#5227FF] to-[#FF9FFC] rounded-full font-poppins text-white hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#5227FF]/50 flex gap-2 items-center text-xs sm:text-base"
               >
-                <Download className="w-5 h-5" /> Download Resume
+                <Download className="size-4 md:size-5" /> Download Resume
               </a>
               <Link
                 to="Contact"
@@ -296,9 +296,9 @@ function Hero() {
                 smooth={true}
                 offset={-100}
                 duration={800}
-                className="px-8 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full  font-poppins  text-white hover:bg-white/20 transition-all duration-300 flex gap-2 items-center"
+                className="px-8 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full font-poppins  text-white hover:bg-white/20 transition-all duration-300 flex gap-2 items-center text-xs sm:text-base"
               >
-                <MdPhone className="w-5 h-5" /> Start a Conversation
+                <MdPhone className="size-4 md:size-5" /> Start a Conversation
               </Link>
             </motion.div>
           </motion.div>
