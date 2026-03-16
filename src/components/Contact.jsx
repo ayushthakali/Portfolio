@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { Send, Loader, Mail, MapPin, Phone, Check } from "lucide-react";
+import { Send, Loader, Mail, MapPin, Phone, Check, MoveRight } from "lucide-react";
 import {
   FaFacebook,
   FaInstagram,
@@ -139,9 +139,13 @@ function Contact() {
           className="w-full lg:col-span-2"
         >
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 md:p-12 shadow-xl">
-            <h3 className="text-white text-xl sm:text-2xl font-bold font-poppins mb-6 sm:mb-8">
-              Send a Message
-            </h3>
+            <div className="flex items-center mb-6 sm:mb-8">
+              <Send className="w-8 h-8 mr-2 text-white" />
+
+              <h3 className="text-white text-2xl sm:text-3xl font-bold font-poppins ">
+                Have a message?
+              </h3>
+            </div>
 
             {/* Success Message */}
             {isSent && (
@@ -157,45 +161,47 @@ function Contact() {
               </motion.div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-white/90 font-poppins mb-2 font-medium text-sm"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  disabled={isLoading}
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Your name"
-                />
-              </div>
+            <form onSubmit={handleSubmit} className="space-y-6 ">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-white/90 font-poppins mb-2 font-medium text-sm"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
+                    className="w-full px-4 py-2 placeholder:text-xs bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    placeholder="Your name"
+                  />
+                </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-white/90 font-poppins mb-2 font-medium text-sm"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  disabled={isLoading}
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Your email"
-                />
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-white/90 font-poppins mb-2 font-medium text-sm"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
+                    className="w-full placeholder:text-xs px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    placeholder="Your email"
+                  />
+                </div>
               </div>
 
               <div>
@@ -213,7 +219,7 @@ function Contact() {
                   required
                   disabled={isLoading}
                   rows={5}
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-2 placeholder:text-xs bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Write your message..."
                 />
               </div>
@@ -233,8 +239,8 @@ function Contact() {
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5" />
                     Send Message
+                    <MoveRight className="w-5 h-5" />
                   </>
                 )}
               </motion.button>
