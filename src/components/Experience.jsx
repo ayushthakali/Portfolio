@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, MapPin, Zap, Code2 } from "lucide-react";
+import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
@@ -8,7 +8,6 @@ const experiences = [
     location: "Pokhara, Nepal",
     date: "Nov 2024 – Jan 2025",
     tag: "React",
-    tagIcon: Code2,
     bullets: [
       "Contributed to TrustMed, a hospital management system built with React",
       "Built responsive UI components and enhanced user workflows",
@@ -21,7 +20,6 @@ const experiences = [
     location: "Pokhara, Nepal",
     date: "Dec 2025 – Present",
     tag: "Next.js",
-    tagIcon: Zap,
     bullets: [
       "Contributed to Receipt AI, an AI-powered receipt management system",
       "Built the frontend in Next.js and implemented Google OAuth authentication",
@@ -56,7 +54,6 @@ function Experience() {
       {/* Cards */}
       <div className="w-full max-w-5xl flex flex-col gap-12">
         {experiences.map((exp, index) => {
-          const TagIcon = exp.tagIcon;
           return (
             <motion.div
               key={index}
