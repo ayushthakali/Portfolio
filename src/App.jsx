@@ -5,13 +5,15 @@ import Skills from "./components/Skills";
 import Projects from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Experience from "./components/Experience";
 
 function App() {
   return (
-    <main className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 font-poppins overflow-hidden" >
+    <main className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 font-poppins overflow-hidden">
       <Navbar />
       <Hero />
       <Education />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />

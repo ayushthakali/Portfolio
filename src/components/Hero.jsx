@@ -325,10 +325,8 @@ function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.1 }}
+        className="my-22"
       >
-        {/* Top fade line */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-5" />
-
         {/* Scrolling track */}
         <div className="relative overflow-hidden">
           {/* Left fade mask */}
@@ -347,9 +345,6 @@ function Hero() {
             ))}
           </div>
         </div>
-
-        {/* Bottom fade line */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mt-5" />
       </motion.div>
 
       {/* Keyframe injection */}
