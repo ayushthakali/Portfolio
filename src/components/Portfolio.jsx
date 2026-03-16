@@ -18,7 +18,7 @@ function Portfolio() {
         className="flex flex-col items-center"
       >
         <div>
-          <h2 className="text-white text-5xl md:text-6xl font-bold font-poppins mb-4">
+          <h2 className="text-white text-4xl md:text-5xl font-bold font-poppins mb-4">
             Portfolio
           </h2>
           <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
@@ -41,7 +41,7 @@ function Portfolio() {
           <div className="flex-grow h-px bg-gradient-to-r to-blue-400/50 from-transparent" />
 
           <div className="flex-shrink-0">
-            <h3 className="text-white text-3xl md:text-4xl font-bold font-poppins">
+            <h3 className="text-white text-2xl md:text-3xl font-bold font-poppins">
               Projects
             </h3>
           </div>
@@ -96,7 +96,7 @@ function Portfolio() {
 
                 {/* Content */}
                 <div className="px-6 py-8 flex flex-col">
-                  <h3 className="text-white text-xl font-bold mb-4 group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-white text-base md:text-lg font-bold mb-4 group-hover:text-purple-400 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-white/70 text-sm mb-4 text-justify">
@@ -118,7 +118,7 @@ function Portfolio() {
                   {/* Features */}
                   <ul className="space-y-2">
                     {project.features.map((feat, i) => (
-                      <li key={i} className="flex gap-2 text-white/70 text-sm">
+                      <li key={i} className="flex gap-2 text-white/70 text-xs">
                         <Check className="flex-shrink-0 text-purple-400" />
                         <p>{feat}</p>
                       </li>
@@ -159,7 +159,7 @@ function Portfolio() {
           <div className="flex-grow h-px bg-gradient-to-r to-purple-400/50 from-transparent" />
 
           <div className="flex-shrink-0">
-            <h3 className="text-white text-3xl md:text-4xl font-bold font-poppins">
+            <h3 className="text-white text-2xl md:text-3xl font-bold font-poppins">
               Certifications
             </h3>
           </div>
@@ -213,16 +213,16 @@ function Portfolio() {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col">
-                  <h3 className="text-white text-xl font-bold group-hover:text-purple-400 transition-colors flex-1 mb-2">
+                  <h3 className="text-white text-lg font-bold group-hover:text-purple-400 transition-colors flex-1 mb-2">
                     {cert.title}
                   </h3>
 
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-purple-400 text-sm font-medium">
+                    <span className="text-purple-400 text-xs font-medium">
                       {cert.issuer}
                     </span>
                     <span className="text-white/40">•</span>
-                    <span className="text-white/60 text-sm">{cert.date}</span>
+                    <span className="text-white/60 text-xs">{cert.date}</span>
                   </div>
 
                   <p className="text-white/70 text-sm mb-4 text-justify">

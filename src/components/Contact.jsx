@@ -108,7 +108,7 @@ function Contact() {
   return (
     <section
       id="Contact"
-      className="min-h-screen w-full py-20 px-6 md:px-12 flex flex-col items-center space-y-16"
+      className="min-h-screen w-full py-20 px-4 sm:px-8 md:px-12 flex flex-col items-center space-y-16"
     >
       {/* Heading */}
       <motion.div
@@ -119,7 +119,7 @@ function Contact() {
         className="flex flex-col items-center"
       >
         <div>
-          <h2 className="text-white text-4xl md:text-6xl font-bold text-center font-poppins mb-4">
+          <h2 className="text-white text-4xl md:text-5xl font-bold text-center font-poppins mb-4">
             Let's Connect
           </h2>
           <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
@@ -138,8 +138,8 @@ function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="w-full lg:col-span-2"
         >
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-12 shadow-xl">
-            <h3 className="text-white text-2xl sm:text-3xl font-bold font-poppins mb-8">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 md:p-12 shadow-xl">
+            <h3 className="text-white text-xl sm:text-2xl font-bold font-poppins mb-6 sm:mb-8">
               Send a Message
             </h3>
 
@@ -161,7 +161,7 @@ function Contact() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-white/90 font-poppins mb-2 font-medium"
+                  className="block text-white/90 font-poppins mb-2 font-medium text-sm"
                 >
                   Name
                 </label>
@@ -173,7 +173,7 @@ function Contact() {
                   onChange={handleChange}
                   required
                   disabled={isLoading}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your name"
                 />
               </div>
@@ -181,7 +181,7 @@ function Contact() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-white/90 font-poppins mb-2 font-medium"
+                  className="block text-white/90 font-poppins mb-2 font-medium text-sm"
                 >
                   Email Address
                 </label>
@@ -193,7 +193,7 @@ function Contact() {
                   onChange={handleChange}
                   required
                   disabled={isLoading}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your email"
                 />
               </div>
@@ -201,7 +201,7 @@ function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-white/90 font-poppins mb-2 font-medium"
+                  className="block text-white/90 font-poppins mb-2 font-medium text-sm"
                 >
                   Message
                 </label>
@@ -212,8 +212,8 @@ function Contact() {
                   onChange={handleChange}
                   required
                   disabled={isLoading}
-                  rows={6}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  rows={5}
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Write your message..."
                 />
               </div>
@@ -251,7 +251,7 @@ function Contact() {
         >
           {/* Contact Info */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl p-6">
-            <h3 className="text-xl font-bold font-poppins mb-5 text-white ">
+            <h3 className="text-lg font-bold font-poppins mb-5 text-white ">
               Contact Information
             </h3>
             <div className="space-y-6">
@@ -262,12 +262,12 @@ function Contact() {
                     key={i}
                     className="flex items-center justify-start gap-2 group rounded-xl transition-all cursor-default"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                      <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-white/70 text-sm ">{item.title}</p>
-                      <p className="text-white font-sm group-hover:text-purple-400 transition-colors ">
+                      <p className="text-white text-xs group-hover:text-purple-400 transition-colors ">
                         {item.value}
                       </p>
                     </div>
@@ -279,7 +279,7 @@ function Contact() {
 
           {/* Social Media */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl p-6">
-            <h3 className="text-xl font-bold font-poppins mb-4 text-white">
+            <h3 className="text-lg font-bold font-poppins mb-4 text-white">
               Follow Me
             </h3>
             <div className="flex flex-wrap gap-4">

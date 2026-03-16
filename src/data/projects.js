@@ -1,6 +1,21 @@
 export const projects = [
   {
     id: 1,
+    title: "Receipt AI – AI-Powered Receipt Management",
+    description:
+      "An intelligent receipt management system that automatically extract, categorize, and organize financial documents with multi-company support.",
+    image: "/projects/receiptAi.png",
+    tags: ["Next.js", "TailwindCSS", "MongoDB", "Google OAuth", "JWT"],
+    github: "https://github.com/ayushthakali",
+    features: [
+      "AI-powered document scanning and data extraction",
+      "Multi-company management system",
+      "Google OAuth authentication with JWT",
+      "AI assistant chat for document insights",
+    ],
+  },
+  {
+    id: 2,
     title: "SB Thakali – Chartered Accountant Website",
     description:
       "A modern, fully responsive website for a Chartered Accountant firm based in Pokhara, Nepal.",
@@ -16,7 +31,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Digi Services Pvt. Ltd. Website",
     description:
       "A modern, fully responsive website designed for Digi Services Pvt. Ltd., highlighting their digital services, tech solutions, and brand identity.",
@@ -31,21 +46,7 @@ export const projects = [
       "EmailJS-powered contact form",
     ],
   },
-  {
-    id: 3,
-    title: "Receipt AI – AI-Powered Receipt Management",
-    description:
-      "An intelligent receipt management system that automatically extract, categorize, and organize financial documents with multi-company support.",
-    image: "/projects/receiptAi.png",
-    tags: ["Next.js", "TailwindCSS", "MongoDB", "Google OAuth", "JWT"],
-    github: "https://github.com/ayushthakali",
-    features: [
-      "AI-powered document scanning and data extraction",
-      "Multi-company management system",
-      "Google OAuth authentication with JWT",
-      "AI assistant chat for document insights",
-    ],
-  },
+
   {
     id: 4,
     title: "HisabKitab – Expense Tracker",

@@ -1,35 +1,35 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar, Award, BookOpen, School } from "lucide-react";
 
-function Education() {
-  const education = [
-    {
-      title: "Bachelors in Computer Engineering",
-      icon: GraduationCap,
-      date: "2021-2025 AD",
-      college: "Kathmandu Engineering College (Tribhuwan University)",
-      grades: "74.24%",
-    },
-    {
-      title: "HSEC in Science",
-      icon: BookOpen,
-      date: "2018-2020 AD",
-      college: "Gandaki Boarding School, Pokhara",
-      grades: "3.24 CGPA",
-    },
-    {
-      title: "Secondary Education Examination",
-      icon: School,
-      date: "2018 AD",
-      college: "Gandaki Boarding School, Pokhara",
-      grades: "3.8 GPA",
-    },
-  ];
+const education = [
+  {
+    title: "Bachelors in Computer Engineering",
+    icon: GraduationCap,
+    date: "2021-2025 AD",
+    college: "Kathmandu Engineering College (Tribhuwan University)",
+    grades: "74.24%",
+  },
+  {
+    title: "HSEC in Science",
+    icon: BookOpen,
+    date: "2018-2020 AD",
+    college: "Gandaki Boarding School, Pokhara",
+    grades: "3.24 CGPA",
+  },
+  {
+    title: "Secondary Education Examination",
+    icon: School,
+    date: "2018 AD",
+    college: "Gandaki Boarding School, Pokhara",
+    grades: "3.8 GPA",
+  },
+];
 
+function Education() {
   return (
     <section
       id="Education"
-      className=" min-h-screen w-full py-20 px-6 md:px-12 flex flex-col items-center space-y-16"
+      className=" min-h-screen w-full pt-8 pb-16 px-6 md:px-12 flex flex-col items-center space-y-16"
     >
       {/* Heading */}
       <motion.div
@@ -39,17 +39,17 @@ function Education() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center "
       >
-        <h2 className="text-white text-5xl md:text-6xl font-bold font-poppins mb-4">
+        <h2 className="text-white text-4xl md:text-5xl font-bold font-poppins mb-4">
           Education
         </h2>
         <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
-        <p className="text-white/70 text-lg mt-6 font-poppins max-w-2xl mx-auto">
+        <p className="text-white/70 text-lg mt-4 font-poppins max-w-2xl mx-auto">
           Steps in My Education
         </p>
       </motion.div>
 
       {/* Timeline */}
-      <div className="relative max-w-3xl lg:max-w-7xl w-full">
+      <div className="relative max-w-3xl lg:max-w-6xl w-full">
         {/* Vertical Line */}
         <motion.div
           initial={{ scaleY: 0 }}
@@ -68,7 +68,7 @@ function Education() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative flex items-center mb-16 ${
+              className={`relative flex items-center mb-12 sm:md-8 md:mb-4 ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               } flex-row`}
             >
@@ -89,25 +89,25 @@ function Education() {
                   {/* Date Badge */}
                   <div className="flex items-center gap-2 mb-3">
                     <Calendar className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm font-poppins text-blue-400 font-semibold">
+                    <span className="text-xs font-poppins text-blue-400 font-semibold">
                       {item.date}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-white text-xl md:text-2xl font-bold font-poppins mb-2">
+                  <h3 className="text-white text-base md:text-lg font-bold font-poppins mb-2">
                     {item.title}
                   </h3>
 
                   {/* College */}
-                  <p className="text-white/70 font-poppins mb-3 text-sm md:text-base">
+                  <p className="text-white/70 font-poppins mb-3 text-xs md:text-sm">
                     {item.college}
                   </p>
 
                   {/* Grade */}
                   <div className="flex items-center gap-2 pt-2  ">
                     <Award className="w-4 h-4 text-purple-400" />
-                    <span className="text-purple-400 font-semibold font-poppins">
+                    <span className="text-purple-400 font-semibold font-poppins text-xs">
                       {item.grades}
                     </span>
                   </div>

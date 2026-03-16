@@ -122,11 +122,11 @@ function Skills() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col items-center "
       >
-        <h2 className="relative text-white text-5xl md:text-6xl font-bold font-poppins mb-4 after:absolute after-content[''] after:left-0 after:-bottom-4 after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-400 after:to-purple-500 after:rounded-full">
+        <h2 className="relative text-white text-4xl md:text-5xl font-bold font-poppins mb-4 after:absolute after-content[''] after:left-0 after:-bottom-4 after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-400 after:to-purple-500 after:rounded-full">
           Skills
         </h2>
 
-        <p className="text-white/70 text-lg mt-6 font-poppins">
+        <p className="text-white/70 text-lg mt-6 font-poppins text-center">
           Technologies I use to build amazing projects
         </p>
       </motion.div>
