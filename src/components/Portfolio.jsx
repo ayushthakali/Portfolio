@@ -99,7 +99,7 @@ function Portfolio() {
                   <h3 className="text-white text-base md:text-lg font-bold mb-4 group-hover:text-purple-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-white/70 text-sm mb-4 text-justify">
+                  <p className="text-white/70 text-sm mb-4">
                     {project.description}
                   </p>
 
@@ -132,7 +132,7 @@ function Portfolio() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/link inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-400/20 hover:border-blue-400/40 rounded-lg text-white text-sm font-medium transition-all duration-300"
+                        className="group/link inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-400/20 hover:border-blue-400/40 rounded-lg text-white text-xs font-medium transition-all duration-300"
                       >
                         <ExternalLink className="w-4 h-4 text-blue-400 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
                         <span>View Live</span>
@@ -225,7 +225,7 @@ function Portfolio() {
                     <span className="text-white/60 text-xs">{cert.date}</span>
                   </div>
 
-                  <p className="text-white/70 text-sm mb-4 text-justify">
+                  <p className="text-white/70 text-sm mb-4">
                     {cert.description}
                   </p>
 

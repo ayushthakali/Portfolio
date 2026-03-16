@@ -133,7 +133,7 @@ function Experience() {
                         <span
                           className={`mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-violet-500 to-purple-700`}
                         />
-                        <p className="text-white/70 font-poppins text-sm leading-relaxed">
+                        <p className="text-white/70 font-poppins text-xs sm:text-sm leading-relaxed">
                           {point}
                         </p>
                       </motion.li>

@@ -65,7 +65,7 @@ export const projects = [
   },
   {
     id: 5,
-    title: "DapsBid – Decentralized Voting Web App",
+    title: "DapsBid – Decentralized Voting App",
     description:
       "A secure and transparent decentralized web application for online voting, built using React for the frontend and styled with Tailwind CSS.",
     image: "/projects/dapsbid.png",
