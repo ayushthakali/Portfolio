@@ -29,7 +29,7 @@ export const certificates = [
     id: 3,
     title: "Responsive Web Design",
     issuer: "freeCodeCamp",
-    date: "2023",
+    date: "2024",
     description:
       "Mastery of HTML5, CSS3, Flexbox, Grid, responsive design principles, accessibility best practices, and modern web layout techniques for building mobile-first applications.",
     image: "/certificates/Responsive.png",
@@ -41,7 +41,7 @@ export const certificates = [
     id: 4,
     title: "JavaScript Algorithms & Data Structures",
     issuer: "freeCodeCamp",
-    date: "2023",
+    date: "2025",
     description:
       "Comprehensive certification covering algorithms, data structures, and problem-solving techniques in JavaScript including arrays, objects, functional programming, and algorithm scripting.",
     image: "/certificates/javascript.png",

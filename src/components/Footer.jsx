@@ -19,7 +19,7 @@ function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-poppins font-black text-[clamp(3rem,12vw,9rem)] text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-white/[0.03] tracking-tighter select-none leading-none text-center"
+          className="font-poppins font-black text-[clamp(3rem,12vw,9rem)] text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-white/[0.03] tracking-tighter select-none leading-none text-center "
         >
           AYUSH
         </motion.h2>
