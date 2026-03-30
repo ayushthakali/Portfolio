@@ -17,6 +17,28 @@ export const projects = [
   },
   {
     id: 2,
+    title: "TrackBoard – Real-time Kanban Board",
+    description:
+      "A high-performance task management system featuring real-time synchronization, secure data isolation, and a modern glassmorphism interface.",
+    image: "/projects/trackboard.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Redux Toolkit",
+      "Google OAuth",
+    ],
+    github: "https://github.com/ayushthakali",
+    live: "https://trackboardx.vercel.app/", // Add your live link here
+    features: [
+      "Real-time data syncing via Supabase WebSockets",
+      "Advanced state management with RTK Query & Optimistic Updates",
+      "Secure Row Level Security (RLS) for private user data",
+      "Smooth drag-and-drop mechanics with d&d kit",
+    ],
+  },
+  {
+    id: 3,
     title: "SB Thakali – Chartered Accountant Website",
     description:
       "A modern, fully responsive website for a Chartered Accountant firm based in Pokhara, Nepal.",
@@ -32,8 +54,8 @@ export const projects = [
     ],
   },
   {
-    id: 3,
-    title: "Digi Services Pvt. Ltd. Website",
+    id: 4,
+    title: "Digi Services Pvt. Ltd. – Corporate Site",
     description:
       "A modern, fully responsive website designed for Digi Services Pvt. Ltd., highlighting their digital services, tech solutions, and brand identity.",
     image: "/projects/digi.png",
@@ -49,7 +71,7 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "HisabKitab – Expense Tracker",
     description:
       "A simple and responsive web application for tracking personal expenses, built with ReactJS and Tailwind CSS.",
@@ -64,7 +86,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "DapsBid – Decentralized Voting App",
     description:
       "A secure and transparent decentralized web application for online voting, built using React for the frontend and styled with Tailwind CSS.",
@@ -76,21 +98,6 @@ export const projects = [
       "Interactive UI components for voting functionality",
       "Integrated frontend with MetaMask for wallet interactions",
       "User-friendly and accessible design",
-    ],
-  },
-  {
-    id: 6,
-    title: "Authentication App – JWT & Bcrypt",
-    description:
-      "A secure authentication system with React frontend and Node.js/Express backend, featuring JWT-based login and password hashing.",
-    image: "/projects/auth-app.png",
-    tags: ["React", "Node.js", "Express", "JWT", "Bcrypt", "SQL"],
-    github: "https://github.com/ayushthakali/",
-    features: [
-      "Bcrypt for password hashing",
-      "JWT-based authentication with protected routes",
-      "Token verification middleware",
-      "Structured with React frontend and Express backend",
     ],
   },
 ];

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaReact, FaGitAlt, FaCss3Alt, FaHtml5 } from "react-icons/fa";
+import { FaReact, FaGitAlt } from "react-icons/fa";
 import {
   SiJavascript,
   SiNextdotjs,
@@ -7,93 +7,103 @@ import {
   SiMongodb,
   SiNodedotjs,
   SiFramer,
+  SiTypescript,
+  SiSupabase,
+  SiRedux,
   SiPostman,
 } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 import { AiOutlineApi } from "react-icons/ai";
 
-function Skills() {
-  const skills = [
-    {
-      name: "React",
-      icon: FaReact,
-      bgColor: "bg-blue-500",
-      glowColor: "shadow-blue-500/50",
-    },
-    {
-      name: "Next.js",
-      icon: SiNextdotjs,
-      bgColor: "bg-gray-800",
-      glowColor: "shadow-gray-800/50",
-    },
-    {
-      name: "HTML",
-      icon: FaHtml5,
-      bgColor: "bg-red-600",
-      glowColor: "shadow-red-600/50",
-    },
-    {
-      name: "CSS",
-      icon: FaCss3Alt,
-      bgColor: "bg-blue-600",
-      glowColor: "shadow-blue-600/50",
-    },
-    {
-      name: "JavaScript",
-      icon: SiJavascript,
-      bgColor: "bg-yellow-500",
-      glowColor: "shadow-yellow-500/50",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: SiTailwindcss,
-      bgColor: "bg-teal-500",
-      glowColor: "shadow-teal-500/50",
-    },
-    {
-      name: "Framer Motion",
-      icon: SiFramer,
-      bgColor: "bg-purple-500",
-      glowColor: "shadow-purple-500/50",
-    },
-    {
-      name: "Node.js",
-      icon: SiNodedotjs,
-      bgColor: "bg-green-600",
-      glowColor: "shadow-green-600/50",
-    },
-    {
-      name: "MongoDB",
-      icon: SiMongodb,
-      bgColor: "bg-green-700",
-      glowColor: "shadow-green-700/50",
-    },
-    {
-      name: "SQL",
-      icon: GrMysql,
-      bgColor: "bg-blue-700",
-      glowColor: "shadow-blue-700/50",
-    },
-    {
-      name: "Git",
-      icon: FaGitAlt,
-      bgColor: "bg-red-600",
-      glowColor: "shadow-red-600/50",
-    },
-    {
-      name: "Postman",
-      icon: SiPostman,
-      bgColor: "bg-orange-500",
-      glowColor: "shadow-orange-500/50",
-    },
-    {
-      name: "REST APIs",
-      icon: AiOutlineApi,
-      bgColor: "bg-gray-700",
-      glowColor: "shadow-gray-700/50",
-    },
-  ];
+const skills = [
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    bgColor: "bg-black",
+    glowColor: "shadow-white/20",
+  },
+  {
+    name: "React",
+    icon: FaReact,
+    bgColor: "bg-blue-500",
+    glowColor: "shadow-blue-500/50",
+  },
+  {
+    name: "JavaScript",
+    icon: SiJavascript,
+    bgColor: "bg-yellow-500",
+    glowColor: "shadow-yellow-500/50",
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    bgColor: "bg-blue-600",
+    glowColor: "shadow-blue-600/50",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+    bgColor: "bg-teal-500",
+    glowColor: "shadow-teal-500/50",
+  },
+  {
+    name: "Redux / RTK",
+    icon: SiRedux,
+    bgColor: "bg-purple-600",
+    glowColor: "shadow-purple-600/50",
+  },
+  {
+    name: "Node.js",
+    icon: SiNodedotjs,
+    bgColor: "bg-green-600",
+    glowColor: "shadow-green-600/50",
+  },
+  {
+    name: "Framer Motion",
+    icon: SiFramer,
+    bgColor: "bg-pink-500",
+    glowColor: "shadow-pink-500/50",
+  },
+  {
+    name: "Supabase",
+    icon: SiSupabase,
+    bgColor: "bg-emerald-500",
+    glowColor: "shadow-emerald-500/50",
+  },
+  {
+    name: "MongoDB",
+    icon: SiMongodb,
+    bgColor: "bg-green-700",
+    glowColor: "shadow-green-700/50",
+  },
+  {
+    name: "SQL",
+    icon: GrMysql,
+    bgColor: "bg-blue-700",
+    glowColor: "shadow-blue-700/50",
+  },
 
+  {
+    name: "Git",
+    icon: FaGitAlt,
+    bgColor: "bg-orange-600",
+    glowColor: "shadow-orange-600/50",
+  },
+  {
+    name: "Postman",
+    icon: SiPostman,
+    bgColor: "bg-orange-600",
+    glowColor: "shadow-orange-600/40",
+  },
+  {
+    name: "REST APIs",
+    icon: AiOutlineApi,
+    bgColor: "bg-gray-700",
+    glowColor: "shadow-gray-700/50",
+  },
+];
+
+function Skills() {
   const parentVariant = {
     hidden: { opacity: 0 },
     visible: {
