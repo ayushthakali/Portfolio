@@ -38,6 +38,28 @@ export const projects = [
     ],
   },
   {
+    id: 5,
+    title: "News AI – Real-time News Summarization",
+    description:
+      "A high-performance news platform that summarizes complex global reporting into instant, actionable research insights through a virtualized, real-time interface.",
+    image: "/projects/newsai.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Redux Toolkit",
+      "TanStack Virtual",
+      "RTK Query",
+    ],
+    github: "https://github.com/ayushthakali",
+    live: "https://news-ai-26.vercel.app/",
+    features: [
+      "AI-driven article summarization using gemini-2.5-flash",
+      "Infinite Scrolling with custom RTK Query cache merging",
+      "DOM virtualization using TanStack Virtual",
+      "Debounced search to optimize API usage।",
+    ],
+  },
+  {
     id: 3,
     title: "SB Thakali – Chartered Accountant Website",
     description:
@@ -70,21 +92,6 @@ export const projects = [
     ],
   },
 
-  {
-    id: 5,
-    title: "HisabKitab – Expense Tracker",
-    description:
-      "A simple and responsive web application for tracking personal expenses, built with ReactJS and Tailwind CSS.",
-    image: "/projects/hisabkitab.png",
-    tags: ["React", "TailwindCSS", "Frontend", "Chart.js"],
-    github: "https://github.com/ayushthakali/",
-    features: [
-      "Responsive dashboard for balance, income, expenses, and recent transactions",
-      "Income vs expense bar chart using Chart.js",
-      "Transaction management system: add, update, remove",
-      "Simulated backend with json-server",
-    ],
-  },
   {
     id: 6,
     title: "DapsBid – Decentralized Voting App",
