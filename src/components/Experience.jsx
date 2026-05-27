@@ -6,7 +6,7 @@ const experiences = [
     role: "Frontend Developer Intern",
     company: "Elevate Tech.",
     location: "Pokhara, Nepal",
-    date: "Nov 2024 – Jan 2025",
+    date: "Nov 2025 – Jan 2026",
     tag: "React",
     bullets: [
       "Contributed to TrustMed, a hospital management system built with React",
@@ -18,7 +18,7 @@ const experiences = [
     role: "MERN Stack Developer Intern",
     company: "Brandbuilder",
     location: "Pokhara, Nepal",
-    date: "Dec 2025 – Present",
+    date: "Feb 2026 – Present",
     tag: "Next.js",
     bullets: [
       "Contributed to Receipt AI, an AI-powered receipt management system",
