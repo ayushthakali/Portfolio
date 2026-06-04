@@ -18,7 +18,7 @@ const experiences = [
     role: "MERN Stack Developer Intern",
     company: "Brandbuilder",
     location: "Pokhara, Nepal",
-    date: "Feb 2026 – Present",
+    date: "Feb 2026 – April 2026",
     tag: "Next.js",
     bullets: [
       "Contributed to Receipt AI, an AI-powered receipt management system",

@@ -15,8 +15,42 @@ export const projects = [
       "AI assistant chat for document insights",
     ],
   },
+
   {
     id: 2,
+    title: "Chatify – Real-Time Full-Stack Chat Application",
+    description:
+      "A production-ready real-time chat application with multi-device support, image sharing, and live user presence tracking.",
+    image: "/projects/chatify.png",
+    tags: ["React", "Node.js", "Express.js", "Socket.IO", "MongoDB", "Arcjet"],
+    github: "https://github.com/ayushthakali/Chatify",
+    live: "https://chatify-production-1463.up.railway.app/",
+    features: [
+      "Real-time messaging with Socket.IO",
+      "Live online/offline user tracking",
+      "Image sharing via Cloudinary",
+      "Optimistic UI updates for instant UX",
+    ],
+  },
+
+  {
+    id: 3,
+    title: "SB Thakali – Chartered Accountant Website",
+    description:
+      "A modern, fully responsive website for a Chartered Accountant firm based in Nepal with a full admin dashboard and blog management system.",
+    image: "/projects/sbthakali.jpg",
+    tags: ["React", "TailwindCSS", "Next.js", "MongoDB", "JWT"],
+    github: "https://github.com/ayushthakali",
+    live: "https://www.sbthakali.com.np",
+    features: [
+      "Admin dashboard",
+      "JWT-based authentication",
+      "MongoDB-powered blog system ",
+      "EmailJS for contact forms ",
+    ],
+  },
+  {
+    id: 4,
     title: "TrackBoard – Real-time Kanban Board",
     description:
       "A high-performance task management system featuring real-time synchronization, secure data isolation, and a modern glassmorphism interface.",
@@ -41,7 +75,7 @@ export const projects = [
     id: 5,
     title: "News AI – Real-time News Summarization",
     description:
-      "A high-performance news platform that summarizes complex global reporting into instant, actionable research insights through a virtualized, real-time interface.",
+      "A news platform that summarizes complex global reporting into instant, actionable research insights through a virtualized, real-time interface.",
     image: "/projects/newsai.png",
     tags: [
       "Next.js",
@@ -59,24 +93,9 @@ export const projects = [
       "Debounced search to optimize API usage।",
     ],
   },
+
   {
-    id: 3,
-    title: "SB Thakali – Chartered Accountant Website",
-    description:
-      "A modern, fully responsive website for a Chartered Accountant firm based in Pokhara, Nepal.",
-    image: "/projects/sbthakali.jpg",
-    tags: ["React", "TailwindCSS", "Next.js", "MongoDB", "JWT"],
-    github: "https://github.com/ayushthakali",
-    live: "https://www.sbthakali.com.np",
-    features: [
-      "Admin dashboard",
-      "JWT-based authentication",
-      "MongoDB-powered blog system ",
-      "EmailJS for contact forms ",
-    ],
-  },
-  {
-    id: 4,
+    id: 6,
     title: "Digi Services Pvt. Ltd. – Corporate Site",
     description:
       "A modern, fully responsive website designed for Digi Services Pvt. Ltd., highlighting their digital services, tech solutions, and brand identity.",
@@ -89,22 +108,6 @@ export const projects = [
       "Fully responsive layout",
       "Clean and modern UI/UX design",
       "EmailJS-powered contact form",
-    ],
-  },
-
-  {
-    id: 6,
-    title: "DapsBid – Decentralized Voting App",
-    description:
-      "A secure and transparent decentralized web application for online voting, built using React for the frontend and styled with Tailwind CSS.",
-    image: "/projects/dapsbid.png",
-    tags: ["React", "TailwindCSS", "Frontend", "UI/UX"],
-    github: "https://github.com/ayushthakali/",
-    features: [
-      "Responsive frontend using React and Tailwind CSS",
-      "Interactive UI components for voting functionality",
-      "Integrated frontend with MetaMask for wallet interactions",
-      "User-friendly and accessible design",
     ],
   },
 ];
