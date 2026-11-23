@@ -88,7 +88,9 @@ function Hero() {
             className="motion-rise col-span-2 md:col-span-3 lg:col-span-3 lg:col-start-10"
             style={{ "--delay": "200ms" }}
           >
-            <picture>
+            {/* Rounded corners plus a soft radial mask so the photo fades
+                into the page instead of ending on a hard edge. */}
+            <picture className="block [mask-image:radial-gradient(closest-side_at_50%_46%,#000_50%,transparent_100%)]">
               <source srcSet={photo.webp} type="image/webp" />
               <img
                 src={photo.src}
@@ -96,10 +98,10 @@ function Hero() {
                 width={photo.width}
                 height={photo.height}
                 decoding="async"
-                className="aspect-[4/5] w-full bg-muted object-cover object-[50%_15%]"
+                className="aspect-[4/5] w-full rounded-[2rem] object-cover object-[50%_18%]"
               />
             </picture>
-            <figcaption className="mt-3 flex justify-between gap-4">
+            <figcaption className="mt-1 flex justify-between gap-4 px-2">
               <MonoLabel>{profile.location.split(",")[0]}</MonoLabel>
               <LocalTime />
             </figcaption>

@@ -8,6 +8,7 @@ import { profile } from "@/data/profile";
 const pages = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Experience", href: "/experience" },
   { label: "Work", href: "/work" },
   { label: "Contact", href: "/contact" },
 ];

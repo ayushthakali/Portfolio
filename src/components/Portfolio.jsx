@@ -132,11 +132,7 @@ function Portfolio() {
   const number = (index) => String(index + 1).padStart(2, "0");
 
   return (
-    <Section
-      tone="dark"
-      aria-label="Projects"
-      className="pt-[calc(var(--section-space)*0.6)] pb-[var(--section-space)]"
-    >
+    <Section aria-label="Projects" className="pt-4 pb-[var(--section-space)] md:pt-8">
       <Container>
         <div className="space-y-16 md:space-y-24">
           {featured.map((project, i) => (

@@ -14,7 +14,7 @@ const featured = projects.slice(0, 2);
 
 function FeaturedWork() {
   return (
-    <Section tone="muted" labelledBy="featured-title">
+    <Section labelledBy="featured-title">
       <Container>
         <SectionHeader
           index="01"

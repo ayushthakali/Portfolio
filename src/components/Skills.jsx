@@ -4,12 +4,12 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import MonoLabel from "@/components/ui/MonoLabel";
 import { skillGroups } from "@/data/skills";
 
-function Skills() {
+function Skills({ index = "02", tone = "default" }) {
   return (
-    <Section id="skills" labelledBy="skills-title">
+    <Section id="skills" tone={tone} labelledBy="skills-title">
       <Container>
         <SectionHeader
-          index="02"
+          index={index}
           label="Skills"
           id="skills-title"
           title={

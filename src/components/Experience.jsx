@@ -40,12 +40,20 @@ function Highlights({ items }) {
   );
 }
 
-function Experience() {
+function Experience({ asPage = false }) {
+  // On its own page the h1 is the page title, so companies move up a level.
+  const Company = asPage ? "h2" : "h3";
+
   return (
-    <Section id="experience" labelledBy="experience-title">
+    <Section
+      id="experience"
+      labelledBy="experience-title"
+      className={asPage ? "pt-12 pb-[var(--section-space)] md:pt-16" : undefined}
+    >
       <Container>
         <SectionHeader
-          index="01"
+          as={asPage ? "h1" : "h2"}
+          index={asPage ? undefined : "01"}
           label="Experience"
           id="experience-title"
           title={
@@ -77,7 +85,7 @@ function Experience() {
                 </div>
 
                 <div className="col-span-4 md:col-span-6 lg:col-span-9">
-                  <h3 className="font-serif text-h3">{exp.company}</h3>
+                  <Company className="font-serif text-h3">{exp.company}</Company>
                   <p className="mt-2 font-medium">{exp.role}</p>
 
                   <ul

@@ -12,7 +12,7 @@ function ExperienceSnapshot() {
     <Section labelledBy="snapshot-title">
       <Container>
         <SectionHeader
-          index="02"
+          index="03"
           label="Experience"
           id="snapshot-title"
           title={
@@ -22,12 +22,12 @@ function ExperienceSnapshot() {
           }
           action={
             <TextLink
-              href="/about"
+              href="/experience"
               icon={ArrowRight}
               iconNudge="group-hover:translate-x-0.5"
               className="min-h-11 text-sm font-medium"
             >
-              More about me
+              Full experience
             </TextLink>
           }
         />

@@ -25,7 +25,7 @@ function Background() {
     <Section id="education" labelledBy="background-title" className="pb-[var(--section-space)]">
       <Container>
         <SectionHeader
-          index="03"
+          index="01"
           label="Background"
           id="background-title"
           title={

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Experience from "./pages/Experience";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -14,6 +15,7 @@ const SITE = "Ayush Thakali";
 const routes = {
   "/": { page: Home, title: `${SITE} | Full Stack Developer` },
   "/about": { page: About, title: `About | ${SITE}` },
+  "/experience": { page: Experience, title: `Experience | ${SITE}` },
   "/work": { page: Work, title: `Work | ${SITE}` },
   "/contact": { page: Contact, title: `Contact | ${SITE}` },
 };
