@@ -121,7 +121,7 @@ function FeaturedProject({ project, number }) {
   const [name, subtitle] = splitTitle(project.title);
 
   return (
-    <article className="group">
+    <article data-reveal className="group">
       <ProjectImage
         project={project}
         name={name}
@@ -151,7 +151,7 @@ function Project({ project, number, flip }) {
   const [name, subtitle] = splitTitle(project.title);
 
   return (
-    <article className="group grid-site items-start gap-y-8">
+    <article data-reveal className="group grid-site items-start gap-y-8">
       <ProjectImage
         project={project}
         name={name}
@@ -223,7 +223,7 @@ function Portfolio() {
         </div>
 
         {/* Certifications */}
-        <div className="grid-site mt-24 gap-y-6 md:mt-32">
+        <div data-reveal className="grid-site mt-24 gap-y-6 md:mt-32">
           <h3 className="col-span-4 md:col-span-2 lg:col-span-3">
             <MonoLabel className="text-foreground">Certifications</MonoLabel>
           </h3>
@@ -231,13 +231,17 @@ function Portfolio() {
             {certificates.map((cert) => (
               <li
                 key={cert.id}
-                className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 gap-y-1 border-b border-border py-4 md:grid-cols-[minmax(0,1fr)_14rem_auto]"
+                className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-1 border-b border-border py-2 md:grid-cols-[minmax(0,1fr)_14rem_auto]"
               >
                 <p className="font-medium">{cert.title}</p>
                 <MonoLabel className="order-3 col-span-2 md:order-none md:col-span-1">
                   {cert.issuer} / {cert.date}
                 </MonoLabel>
-                <TextLink href={cert.credentialUrl} arrow className="text-sm">
+                <TextLink
+                  href={cert.credentialUrl}
+                  arrow
+                  className="min-h-11 text-sm"
+                >
                   View<span className="sr-only"> {cert.title} credential</span>
                 </TextLink>
               </li>

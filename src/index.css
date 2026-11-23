@@ -250,6 +250,66 @@
 }
 
 /* ==========================================================================
+   Motion
+   Only opacity and transform are animated. Entrance animations are pure CSS,
+   so the hero and nav still end up visible if JavaScript fails.
+   ========================================================================== */
+
+@keyframes pf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pf-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Page-load entrance. Stagger with style={{ "--delay": "120ms" }}. */
+@utility motion-rise {
+  animation: pf-rise 1000ms var(--ease-out-expo) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@utility motion-fade {
+  animation: pf-fade 700ms var(--ease-out-quart) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Scroll reveal. Elements are only hidden once main.jsx has added
+   .js-reveal and motion is allowed; useScrollReveal adds .is-revealed. */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal [data-reveal] {
+    transition:
+      opacity 800ms var(--ease-out-quart),
+      transform 1000ms var(--ease-out-expo);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .js-reveal [data-reveal]:not(.is-revealed) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@media print {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
    Reduced motion
    ========================================================================== */
 
@@ -258,8 +318,10 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
   }
 }

@@ -21,7 +21,12 @@ function Skills() {
 
         <div className="mt-12 grid grid-cols-1 gap-x-[var(--grid-gap)] gap-y-12 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
           {skillGroups.map((group, i) => (
-            <section key={group.title} aria-labelledby={`skills-${i}`}>
+            <section
+              key={group.title}
+              aria-labelledby={`skills-${i}`}
+              data-reveal
+              style={{ "--delay": `${i * 90}ms` }}
+            >
               <h3
                 id={`skills-${i}`}
                 className="flex items-baseline justify-between border-b border-foreground pb-3"

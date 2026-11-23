@@ -72,7 +72,7 @@ function Contact() {
         </div>
 
         <div className="grid-site mt-10 gap-y-10 md:mt-14">
-          <div className="col-span-4 md:col-span-8 lg:col-span-10">
+          <div data-reveal className="col-span-4 md:col-span-8 lg:col-span-10">
             <h2 id="contact-title" className="text-display">
               Let’s <em className="italic">connect.</em>
             </h2>
@@ -95,7 +95,10 @@ function Contact() {
 
         <div className="grid-site mt-20 gap-y-16 md:mt-28">
           {/* Details and profiles */}
-          <div className="col-span-4 space-y-12 md:col-span-3 lg:col-span-4">
+          <div
+            data-reveal
+            className="col-span-4 space-y-12 md:col-span-3 lg:col-span-4"
+          >
             <dl className="space-y-5">
               {details.map((item) => (
                 <div key={item.label}>
@@ -126,7 +129,11 @@ function Contact() {
           </div>
 
           {/* Form */}
-          <div className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6">
+          <div
+            data-reveal
+            style={{ "--delay": "120ms" }}
+            className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6"
+          >
             <h3 className="font-serif text-h3">Have a message?</h3>
             <form onSubmit={handleSubmit} className="mt-8 space-y-8">
               <div className="grid gap-8 sm:grid-cols-2">

@@ -20,7 +20,7 @@ function Hero() {
     >
       <Container>
         {/* Meta line */}
-        <div className="grid-site gap-y-2 border-b border-border pb-4">
+        <div className="motion-rise grid-site gap-y-2 border-b border-border pb-4">
           <MonoLabel className="col-span-4 text-foreground md:col-span-3">
             {profile.role}
           </MonoLabel>
@@ -35,14 +35,24 @@ function Hero() {
           id="hero-title"
           className="mt-12 text-display md:mt-16 lg:mt-24"
         >
-          <span className="block">{profile.firstName}</span>{" "}
-          <span className="block pl-[14%] italic md:pl-[calc((100%_+_var(--grid-gap))*3/8)] lg:pl-[calc((100%_+_var(--grid-gap))/3)]">
+          <span
+            className="motion-rise block"
+            style={{ "--delay": "100ms" }}
+          >
+            {profile.firstName}
+          </span>{" "}
+          <span
+            style={{ "--delay": "220ms" }}
+            className="motion-rise block pl-[14%] italic md:pl-[calc((100%_+_var(--grid-gap))*3/8)] lg:pl-[calc((100%_+_var(--grid-gap))/3)]">
             {profile.lastName}
           </span>
         </h1>
 
         <div className="grid-site mt-12 gap-y-10 md:mt-16 lg:mt-20">
-          <div className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-6 lg:col-start-5">
+          <div
+            className="motion-rise col-span-4 md:col-span-5 md:col-start-4 lg:col-span-6 lg:col-start-5"
+            style={{ "--delay": "380ms" }}
+          >
             <p className="max-w-[36rem] text-lead">{profile.summary}</p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -58,13 +68,16 @@ function Hero() {
               href={profile.resume}
               download
               icon={Download}
-              className="mt-6 text-sm font-medium"
+              className="mt-4 min-h-11 text-sm font-medium"
             >
               Download resume (PDF)
             </TextLink>
           </div>
 
-          <figure className="col-span-2 md:col-span-3 md:col-start-1 md:row-start-1 lg:col-span-3">
+          <figure
+            className="motion-rise col-span-2 md:col-span-3 md:col-start-1 md:row-start-1 lg:col-span-3"
+            style={{ "--delay": "300ms" }}
+          >
             <picture>
               <source srcSet={photo.webp} type="image/webp" />
               <img
@@ -79,7 +92,9 @@ function Hero() {
           </figure>
 
           {currentRole && (
-            <dl className="col-span-2 self-end md:col-span-5 md:col-start-4 lg:col-span-2 lg:col-start-11">
+            <dl
+              style={{ "--delay": "500ms" }}
+              className="motion-rise col-span-2 self-end md:col-span-5 md:col-start-4 lg:col-span-2 lg:col-start-11">
               <MonoLabel as="dt">Currently</MonoLabel>
               <dd className="mt-2 text-sm leading-relaxed">
                 {currentRole.role}

@@ -20,7 +20,9 @@ function About() {
         />
 
         <div className="grid-site mt-12 gap-y-8 md:mt-16">
-          <div className="col-span-4 space-y-6 md:col-span-6 md:col-start-3 lg:col-span-6 lg:col-start-4">
+          <div
+            data-reveal
+            className="col-span-4 space-y-6 md:col-span-6 md:col-start-3 lg:col-span-6 lg:col-start-4">
             <p className="text-lead">
               I’m a Full Stack Developer based in Pokhara, Nepal, currently
               building and maintaining production systems at Omni Tech.
@@ -41,7 +43,7 @@ function About() {
         </div>
 
         {/* Education */}
-        <div className="grid-site mt-20 gap-y-6 md:mt-28">
+        <div data-reveal className="grid-site mt-20 gap-y-6 md:mt-28">
           <h3 className="col-span-4 md:col-span-2 lg:col-span-3">
             <MonoLabel className="text-foreground">Education</MonoLabel>
           </h3>

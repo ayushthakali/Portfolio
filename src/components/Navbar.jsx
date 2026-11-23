@@ -59,12 +59,10 @@ function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-colors duration-300",
-        open
+        "motion-fade sticky top-0 z-50 border-b transition-colors duration-300",
+        open || scrolled
           ? "border-border bg-background"
-          : scrolled
-            ? "border-border bg-background/90 backdrop-blur-md"
-            : "border-transparent bg-background"
+          : "border-transparent bg-background"
       )}
     >
       <Container className="flex h-[var(--nav-height)] items-center justify-between gap-6">
@@ -160,10 +158,15 @@ function Navbar() {
 
           <div className="flex flex-col items-start gap-3">
             <MonoLabel>Get in touch</MonoLabel>
-            <TextLink href={`mailto:${profile.email}`} className="text-lg">
+            <TextLink href={`mailto:${profile.email}`} className="min-h-11 text-lg">
               {profile.email}
             </TextLink>
-            <TextLink href={profile.resume} download icon={Download}>
+            <TextLink
+              href={profile.resume}
+              download
+              icon={Download}
+              className="min-h-11"
+            >
               Download resume (PDF)
             </TextLink>
           </div>

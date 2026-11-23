@@ -8,6 +8,7 @@ import MonoLabel from "./MonoLabel";
 function SectionHeader({ index, label, title, intro, id, className }) {
   return (
     <header
+      data-reveal
       className={cn(
         "grid-site gap-y-6 border-t border-border pt-6 md:pt-8",
         className

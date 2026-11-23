@@ -63,6 +63,7 @@ function Experience() {
             return (
               <li
                 key={exp.company}
+                data-reveal
                 className="grid-site gap-y-5 border-t border-border py-10 first:border-t-0 first:pt-0 md:py-14"
               >
                 <div className="col-span-4 flex flex-wrap gap-x-4 gap-y-1 md:col-span-2 md:flex-col lg:col-span-3">
