@@ -121,7 +121,7 @@ function Skills() {
 
   return (
     <section
-      id="Skills"
+      id="skills"
       className=" min-h-screen w-full py-20 px-6 md:px-12 flex flex-col items-center space-y-16"
     >
       {/* Heading */}

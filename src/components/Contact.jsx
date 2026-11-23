@@ -107,7 +107,7 @@ function Contact() {
 
   return (
     <section
-      id="Contact"
+      id="contact"
       className="min-h-screen w-full py-20 px-4 sm:px-8 md:px-12 flex flex-col items-center space-y-16"
     >
       {/* Heading */}

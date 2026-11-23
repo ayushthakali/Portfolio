@@ -91,7 +91,7 @@
   --color-ring: #315c4c;
 
   /* Fluid type scale */
-  --text-display: clamp(3.5rem, 2rem + 9vw, 10rem);
+  --text-display: clamp(4rem, 1.5rem + 14vw, 12.5rem);
   --text-display--line-height: 0.9;
   --text-display--letter-spacing: -0.025em;
 
@@ -159,6 +159,7 @@
   }
 
   html {
+    scroll-behavior: smooth;
     scroll-padding-top: var(--nav-height);
     -webkit-text-size-adjust: 100%;
   }
@@ -204,8 +205,10 @@
   padding-inline: var(--gutter);
 }
 
+/* Bottom padding is lighter so stacked sections don't double the gap. */
 @utility section-space {
-  padding-block: var(--section-space);
+  padding-top: var(--section-space);
+  padding-bottom: calc(var(--section-space) * 0.6);
 }
 
 /* Site grid: 4 columns on mobile, 8 on tablet, 12 on desktop. */

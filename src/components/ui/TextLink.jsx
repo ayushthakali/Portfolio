@@ -4,12 +4,24 @@ import { cn } from "@/lib/utils";
 const isExternal = (href = "") => /^https?:\/\//.test(href);
 
 /**
- * Inline text link with a drawn underline and optional arrow.
+ * Inline text link with a drawn underline and optional arrow or icon.
  * External URLs open in a new tab with rel="noopener noreferrer".
  */
-function TextLink({ href, arrow = false, className, children, ...props }) {
+function TextLink({
+  href,
+  arrow = false,
+  icon,
+  className,
+  children,
+  ...props
+}) {
   const external = isExternal(href);
-  const Arrow = external ? ArrowUpRight : ArrowRight;
+  const Icon = icon || (external ? ArrowUpRight : ArrowRight);
+  const nudge = icon
+    ? "group-hover:translate-y-0.5"
+    : external
+      ? "group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+      : "group-hover:translate-x-0.5";
 
   return (
     <a
@@ -22,14 +34,12 @@ function TextLink({ href, arrow = false, className, children, ...props }) {
       {...props}
     >
       <span className="link-underline">{children}</span>
-      {arrow && (
-        <Arrow
+      {(arrow || icon) && (
+        <Icon
           aria-hidden="true"
           className={cn(
             "size-4 shrink-0 transition-transform duration-200 ease-out",
-            external
-              ? "group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              : "group-hover:translate-x-0.5"
+            nudge
           )}
         />
       )}
