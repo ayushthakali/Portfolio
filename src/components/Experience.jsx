@@ -27,6 +27,18 @@ const experiences = [
       "Implemented multi-company workflow and secure access management",
     ],
   },
+  {
+    role: "Full Stack Developer",
+    company: "Omni Tech",
+    location: "Pokhara, Nepal",
+    date: "Aug 2026 – Present",
+    tag: "React, Node.js",
+    bullets: [
+      "Avrio Pharmacy Portal: Maintained and fixed bugs in a live ASP.NET MVC and SQL Server pharmacy ordering portal for a US client",
+      "News CMS: Built a multi-tenant news publishing CMS using Payload CMS and PostgreSQL, supporting multiple publications on a single platform",
+      "PIIRRO: Built and deployed a food and music discovery platform for Nepal, connecting diners with restaurants and live music venues",
+    ],
+  },  
 ];
 
 function Experience() {
