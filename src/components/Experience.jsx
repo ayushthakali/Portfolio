@@ -86,12 +86,12 @@ function Experience() {
                     {tags.map((tag, i) => (
                       <li key={tag}>
                         <MonoLabel>
-                          {i > 0 && (
-                            <span aria-hidden="true" className="mr-2">
+                          {tag}
+                          {i < tags.length - 1 && (
+                            <span aria-hidden="true" className="ml-2">
                               /
                             </span>
                           )}
-                          {tag}
                         </MonoLabel>
                       </li>
                     ))}

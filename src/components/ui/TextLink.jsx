@@ -11,6 +11,7 @@ function TextLink({
   href,
   arrow = false,
   icon,
+  iconNudge = "group-hover:translate-y-0.5",
   className,
   children,
   ...props
@@ -18,7 +19,7 @@ function TextLink({
   const external = isExternal(href);
   const Icon = icon || (external ? ArrowUpRight : ArrowRight);
   const nudge = icon
-    ? "group-hover:translate-y-0.5"
+    ? iconNudge
     : external
       ? "group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
       : "group-hover:translate-x-0.5";

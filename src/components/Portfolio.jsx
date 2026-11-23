@@ -1,252 +1,251 @@
-import { motion } from "framer-motion";
-import { Check, Github, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import SectionHeader from "@/components/ui/SectionHeader";
+import MonoLabel from "@/components/ui/MonoLabel";
+import TextLink from "@/components/ui/TextLink";
 import { projects } from "@/data/projects";
 import { certificates } from "@/data/certificates";
+import { cn } from "@/lib/utils";
+
+// The first two projects get the full-width featured treatment.
+const FEATURED_COUNT = 2;
+
+// "PIIRRO – Food & Music Discovery Platform" -> ["PIIRRO", "Food & ..."]
+const splitTitle = (title) => {
+  const [name, ...rest] = title.split(" – ");
+  return [name, rest.join(" – ")];
+};
+
+// WebP derivatives sit beside the original: /projects/piirro-960.webp etc.
+const webpSet = (src) => {
+  const base = src.replace(/\.(png|jpe?g)$/i, "");
+  return `${base}-960.webp 960w, ${base}-1600.webp 1600w`;
+};
+
+function ProjectImage({ project, name, sizes, className }) {
+  const [failed, setFailed] = useState(!project.image);
+
+  const frame = cn(
+    "relative block aspect-[1900/860] overflow-hidden border border-border bg-muted",
+    className
+  );
+
+  if (failed) {
+    return (
+      <div className={cn(frame, "flex items-end p-6")}>
+        <span className="font-serif text-h3 text-muted-foreground">{name}</span>
+      </div>
+    );
+  }
+
+  const image = (
+    <picture>
+      <source type="image/webp" srcSet={webpSet(project.image)} sizes={sizes} />
+      <img
+        src={project.image}
+        alt={`Screenshot of ${name}`}
+        width={1900}
+        height={860}
+        loading="lazy"
+        decoding="async"
+        onError={() => setFailed(true)}
+        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
+      />
+    </picture>
+  );
+
+  // The screenshot repeats the "Live site" link for pointer users only.
+  return project.live ? (
+    <a
+      href={project.live}
+      target="_blank"
+      rel="noopener noreferrer"
+      tabIndex={-1}
+      aria-hidden="true"
+      className={frame}
+    >
+      {image}
+    </a>
+  ) : (
+    <div className={frame}>{image}</div>
+  );
+}
+
+function ProjectMeta({ project, name }) {
+  return (
+    <>
+      <ul aria-label="Technologies" className="flex flex-wrap gap-x-2 gap-y-1">
+        {project.tags.map((tag, i) => (
+          <li key={tag}>
+            <MonoLabel>
+              {tag}
+              {i < project.tags.length - 1 && (
+                <span aria-hidden="true" className="ml-2">
+                  /
+                </span>
+              )}
+            </MonoLabel>
+          </li>
+        ))}
+      </ul>
+
+      <ul className="mt-6 space-y-2">
+        {project.features.map((feature) => (
+          <li
+            key={feature}
+            className="relative pl-5 text-sm leading-relaxed text-muted-foreground before:absolute before:top-[0.7em] before:left-0 before:h-px before:w-2.5 before:bg-foreground/40"
+          >
+            {feature}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+        {project.live && (
+          <TextLink href={project.live} arrow className="min-h-11 text-sm font-medium">
+            Live site<span className="sr-only">: {name}</span>
+          </TextLink>
+        )}
+        {project.github && (
+          <TextLink href={project.github} arrow className="min-h-11 text-sm font-medium">
+            GitHub<span className="sr-only">: {name}</span>
+          </TextLink>
+        )}
+      </div>
+    </>
+  );
+}
+
+function FeaturedProject({ project, number }) {
+  const [name, subtitle] = splitTitle(project.title);
+
+  return (
+    <article className="group">
+      <ProjectImage
+        project={project}
+        name={name}
+        sizes="(min-width: 88rem) 82rem, 100vw"
+      />
+
+      <div className="grid-site mt-8 gap-y-6 md:mt-10">
+        <MonoLabel className="col-span-4 text-foreground md:col-span-2 lg:col-span-3">
+          {number}
+        </MonoLabel>
+        <div className="col-span-4 md:col-span-6 lg:col-span-5">
+          <h3 className="font-serif text-h2">{name}</h3>
+          {subtitle && <p className="mt-3 font-medium">{subtitle}</p>}
+          <p className="mt-4 max-w-[34rem] leading-relaxed text-muted-foreground">
+            {project.description}
+          </p>
+        </div>
+        <div className="col-span-4 md:col-span-6 md:col-start-3 lg:col-span-4 lg:col-start-9">
+          <ProjectMeta project={project} name={name} />
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function Project({ project, number, flip }) {
+  const [name, subtitle] = splitTitle(project.title);
+
+  return (
+    <article className="group grid-site items-start gap-y-8">
+      <ProjectImage
+        project={project}
+        name={name}
+        sizes="(min-width: 64rem) 55vw, 100vw"
+        className={cn(
+          "col-span-4 md:col-span-8 lg:col-span-7",
+          flip && "lg:col-start-6 lg:row-start-1"
+        )}
+      />
+      <div
+        className={cn(
+          "col-span-4 md:col-span-6 md:col-start-3 lg:col-span-4",
+          flip ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-9"
+        )}
+      >
+        <MonoLabel className="text-foreground">{number}</MonoLabel>
+        <h3 className="mt-4 font-serif text-h3">{name}</h3>
+        {subtitle && <p className="mt-2 font-medium">{subtitle}</p>}
+        <p className="mt-4 leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+        <div className="mt-6">
+          <ProjectMeta project={project} name={name} />
+        </div>
+      </div>
+    </article>
+  );
+}
 
 function Portfolio() {
+  const featured = projects.slice(0, FEATURED_COUNT);
+  const rest = projects.slice(FEATURED_COUNT);
+  const number = (index) => String(index + 1).padStart(2, "0");
+
   return (
-    <section
+    <Section
       id="projects"
-      className="min-h-screen w-full py-20 px-6 md:px-12 flex flex-col items-center"
+      tone="dark"
+      labelledBy="projects-title"
+      className="pb-[var(--section-space)]"
     >
-      {/* Heading */}
-      <motion.div
-        initial={{ y: -30, opacity: 0, scale: 0.6 }}
-        whileInView={{ y: 0, opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center mb-14"
-      >
-        <div>
-          <h2 className="text-white text-4xl md:text-5xl font-bold font-poppins mb-4">
-            Portfolio
-          </h2>
-          <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full" />
+      <Container>
+        <SectionHeader
+          index="03"
+          label="Projects"
+          id="projects-title"
+          title={
+            <>
+              Selected <em className="italic">work</em>
+            </>
+          }
+        />
+
+        <div className="mt-12 space-y-20 md:mt-20 md:space-y-28">
+          {featured.map((project, i) => (
+            <FeaturedProject key={project.id} project={project} number={number(i)} />
+          ))}
         </div>
-        <p className="text-white/70 text-lg mt-6 font-poppins max-w-2xl text-center">
-          Open to collaborations, new ideas, and exciting projects.
-        </p>
-      </motion.div>
 
-      {/* Projects Section */}
-      <div className="w-full max-w-7xl space-y-12 mb-24">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-2"
-        >
-          <div className="flex-grow h-px bg-gradient-to-r to-blue-400/50 from-transparent" />
-
-          <div className="flex-shrink-0">
-            <h3 className="text-white text-2xl md:text-3xl font-bold font-poppins">
-              Projects
-            </h3>
-          </div>
-          <div className="flex-grow h-px bg-gradient-to-r from-blue-400/50 to-transparent" />
-        </motion.div>
-
-        {/* Projects Grid */}
-        <motion.div
-          layout
-          className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {projects.map((project, i) => (
-            <motion.div
+        <div className="mt-20 space-y-16 border-t border-border pt-16 md:mt-28 md:space-y-24 md:pt-24">
+          {rest.map((project, i) => (
+            <Project
               key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative"
-            >
-              {/* Card */}
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col">
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} preview`}
-                    className="h-full w-full object-cover"
-                  />
-                  {/* Overlay on hover */}
-                  <div className="hidden sm:flex absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all transform hover:scale-110"
-                    >
-                      <Github className="w-6 h-6 text-white" />
-                    </a>
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all transform hover:scale-110"
-                      >
-                        <ExternalLink className="w-6 h-6 text-white" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="px-6 py-8 flex flex-col">
-                  <h3 className="text-white text-base md:text-lg font-bold mb-4 group-hover:text-purple-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-white/70 text-sm mb-4">
-                    {project.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6 flex-grow">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-xs font-poppins text-white/80"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Features */}
-                  <ul className="space-y-2">
-                    {project.features.map((feat, i) => (
-                      <li key={i} className="flex gap-2 text-white/70 text-xs">
-                        <Check className="flex-shrink-0 text-purple-400" />
-                        <p>{feat}</p>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Mobile Actions */}
-                  <div className="flex sm:hidden gap-3 justify-start mt-6">
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/link inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-400/20 hover:border-blue-400/40 rounded-lg text-white text-xs font-medium transition-all duration-300"
-                      >
-                        <ExternalLink className="w-4 h-4 text-blue-400 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
-                        <span>View Live</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+              project={project}
+              number={number(i + FEATURED_COUNT)}
+              flip={i % 2 === 1}
+            />
           ))}
-        </motion.div>
-      </div>
+        </div>
 
-      {/* Certifications Section */}
-      <div className="w-full max-w-7xl space-y-12">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-2"
-        >
-          <div className="flex-grow h-px bg-gradient-to-r to-purple-400/50 from-transparent" />
-
-          <div className="flex-shrink-0">
-            <h3 className="text-white text-2xl md:text-3xl font-bold font-poppins">
-              Certifications
-            </h3>
-          </div>
-          <div className="flex-grow h-px bg-gradient-to-r from-purple-400/50 to-transparent" />
-        </motion.div>
-
-        {/* Certificates Grid */}
-        <motion.div
-          layout
-          className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {certificates.map((cert, i) => (
-            <motion.div
-              key={cert.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative"
-            >
-              {/* Card */}
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col">
-                {/* Image */}
-                <div className="relative h-68 overflow-hidden">
-                  <img
-                    src={cert.image}
-                    alt={`${cert.title} certificate`}
-                    className="h-full w-full object-cover"
-                  />
-                  {/* Overlay on hover */}
-                  <div className="hidden sm:flex absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300  items-center justify-center">
-                    <a
-                      href={cert.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all transform hover:scale-110"
-                    >
-                      <ExternalLink className="w-6 h-6 text-white" />
-                    </a>
-                  </div>
-                  {/* Mobile Overlay */}
-                  <div className="flex sm:hidden absolute inset-0">
-                    <a
-                      href={cert.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex flex-col">
-                  <h3 className="text-white text-lg font-bold group-hover:text-purple-400 transition-colors flex-1 mb-2">
-                    {cert.title}
-                  </h3>
-
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-purple-400 text-xs font-medium">
-                      {cert.issuer}
-                    </span>
-                    <span className="text-white/40">•</span>
-                    <span className="text-white/60 text-xs">{cert.date}</span>
-                  </div>
-
-                  <p className="text-white/70 text-sm mb-4">
-                    {cert.description}
-                  </p>
-
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-xs text-white/80"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+        {/* Certifications */}
+        <div className="grid-site mt-24 gap-y-6 md:mt-32">
+          <h3 className="col-span-4 md:col-span-2 lg:col-span-3">
+            <MonoLabel className="text-foreground">Certifications</MonoLabel>
+          </h3>
+          <ul className="col-span-4 border-t border-border md:col-span-6 lg:col-span-9">
+            {certificates.map((cert) => (
+              <li
+                key={cert.id}
+                className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 gap-y-1 border-b border-border py-4 md:grid-cols-[minmax(0,1fr)_14rem_auto]"
+              >
+                <p className="font-medium">{cert.title}</p>
+                <MonoLabel className="order-3 col-span-2 md:order-none md:col-span-1">
+                  {cert.issuer} / {cert.date}
+                </MonoLabel>
+                <TextLink href={cert.credentialUrl} arrow className="text-sm">
+                  View<span className="sr-only"> {cert.title} credential</span>
+                </TextLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
+    </Section>
   );
 }
 
