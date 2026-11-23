@@ -1,9 +1,69 @@
 export const projects = [
   {
     id: 1,
+    title: "PIIRRO – Food & Music Discovery Platform",
+    description:
+      "A food and music discovery platform connecting diners with restaurants and live music venues across Nepal, featuring location-based discovery and interactive maps.",
+    image: "/projects/piirro.png",
+    tags: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "MySQL",
+    ],
+    github: "https://github.com/ayushthakali",
+    live: "https://piirro.com",
+    features: [
+      "Location-based restaurant discovery with interactive maps",
+      "Restaurant profiles, menus, and image galleries",
+      "Live music venue discovery",
+      "Restaurant onboarding and management workflows",
+    ],
+  },
+
+  {
+    id: 2,
+    title: "Mero Hisab – Personal Finance & Expense Tracker",
+    description:
+      "A personal finance management application designed to help users track income and expenses, manage multiple accounts, create budgets, and monitor savings goals.",
+    image: "/projects/merohisab.png",
+    tags: ["Next.js", "TypeScript", "React", "TailwindCSS", "PWA"],
+    github: "https://github.com/ayushthakali",
+    live: "https://merohisab2026.vercel.app/welcome",
+    features: [
+      "Income and expense tracking with customizable categories",
+      "Multiple account management",
+      "Budget management and savings goals",
+      "Financial summaries and transaction insights",
+      "Responsive PWA experience for mobile and desktop",
+    ],
+  },
+
+  {
+    id: 3,
+    title: "SB Thakali – Chartered Accountant Website",
+    description:
+      "A modern, fully responsive website for a Chartered Accountant firm based in Nepal with a full admin dashboard and blog management system.",
+    image: "/projects/sbthakali.jpg",
+    tags: ["React", "TailwindCSS", "Next.js", "MongoDB", "JWT"],
+    github: "https://github.com/ayushthakali",
+    live: "https://www.sbthakali.com.np",
+    features: [
+      "Admin dashboard",
+      "JWT-based authentication",
+      "MongoDB-powered blog system",
+      "EmailJS-powered contact forms",
+    ],
+  },
+
+  {
+    id: 4,
     title: "Receipt AI – AI-Powered Receipt Management",
     description:
-      "An intelligent receipt management system that automatically extract, categorize, and organize financial documents with multi-company support.",
+      "An intelligent receipt management system that automatically extracts, categorizes, and organizes financial documents with multi-company support.",
     image: "/projects/RAI.png",
     tags: ["Next.js", "TailwindCSS", "MongoDB", "Google OAuth", "JWT"],
     github: "https://github.com/ayushthakali",
@@ -17,7 +77,7 @@ export const projects = [
   },
 
   {
-    id: 2,
+    id: 5,
     title: "Chatify – Real-Time Full-Stack Chat Application",
     description:
       "A production-ready real-time chat application with multi-device support, image sharing, and live user presence tracking.",
@@ -34,46 +94,8 @@ export const projects = [
   },
 
   {
-    id: 3,
-    title: "SB Thakali – Chartered Accountant Website",
-    description:
-      "A modern, fully responsive website for a Chartered Accountant firm based in Nepal with a full admin dashboard and blog management system.",
-    image: "/projects/sbthakali.jpg",
-    tags: ["React", "TailwindCSS", "Next.js", "MongoDB", "JWT"],
-    github: "https://github.com/ayushthakali",
-    live: "https://www.sbthakali.com.np",
-    features: [
-      "Admin dashboard",
-      "JWT-based authentication",
-      "MongoDB-powered blog system ",
-      "EmailJS for contact forms ",
-    ],
-  },
-  {
-    id: 4,
-    title: "TrackBoard – Real-time Kanban Board",
-    description:
-      "A high-performance task management system featuring real-time synchronization, secure data isolation, and a modern glassmorphism interface.",
-    image: "/projects/trackboard.png",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "Redux Toolkit",
-      "Google OAuth",
-    ],
-    github: "https://github.com/ayushthakali",
-    live: "https://trackboardx.vercel.app/", // Add your live link here
-    features: [
-      "Real-time data syncing via Supabase WebSockets",
-      "Advanced state management with RTK Query & Optimistic Updates",
-      "Secure Row Level Security (RLS) for private user data",
-      "Smooth drag-and-drop mechanics with d&d kit",
-    ],
-  },
-  {
-    id: 5,
-    title: "News AI – Real-time News Summarization",
+    id: 6,
+    title: "News AI – Real-Time News Summarization",
     description:
       "A news platform that summarizes complex global reporting into instant, actionable research insights through a virtualized, real-time interface.",
     image: "/projects/newsai.png",
@@ -87,27 +109,10 @@ export const projects = [
     github: "https://github.com/ayushthakali",
     live: "https://news-ai-26.vercel.app/",
     features: [
-      "AI-driven article summarization using gemini-2.5-flash",
-      "Infinite Scrolling with custom RTK Query cache merging",
+      "AI-driven article summarization using Gemini 2.5 Flash",
+      "Infinite scrolling with custom RTK Query cache merging",
       "DOM virtualization using TanStack Virtual",
-      "Debounced search to optimize API usage।",
-    ],
-  },
-
-  {
-    id: 6,
-    title: "Digi Services Pvt. Ltd. – Corporate Site",
-    description:
-      "A modern, fully responsive website designed for Digi Services Pvt. Ltd., highlighting their digital services, tech solutions, and brand identity.",
-    image: "/projects/digi.png",
-    tags: ["React", "TailwindCSS", "Next.js", "Framer Motion"],
-    github: "https://github.com/ayushthakali",
-    live: "https://digi-services.vercel.app/",
-    features: [
-      "Smooth Framer Motion animations",
-      "Fully responsive layout",
-      "Clean and modern UI/UX design",
-      "EmailJS-powered contact form",
+      "Debounced search to optimize API usage",
     ],
   },
 ];
