@@ -88,9 +88,9 @@ function Hero() {
             className="motion-rise col-span-2 md:col-span-3 lg:col-span-3 lg:col-start-10"
             style={{ "--delay": "200ms" }}
           >
-            {/* Rounded corners plus a soft radial mask so the photo fades
-                into the page instead of ending on a hard edge. */}
-            <picture className="block [mask-image:radial-gradient(closest-side_at_50%_46%,#000_50%,transparent_100%)]">
+            {/* Rounded corners plus a narrow feather on every edge, so the
+                photo softens into the page without a heavy vignette. */}
+            <picture className="block [mask-image:linear-gradient(to_right,transparent,#000_7%,#000_93%,transparent),linear-gradient(to_bottom,transparent,#000_6%,#000_92%,transparent)] [-webkit-mask-composite:source-in] [mask-composite:intersect]">
               <source srcSet={photo.webp} type="image/webp" />
               <img
                 src={photo.src}
