@@ -85,7 +85,7 @@ function Hero() {
           </div>
 
           <figure
-            className="motion-rise col-span-2 md:col-span-3 lg:col-span-3 lg:col-start-10"
+            className="motion-rise col-span-4 mx-auto w-full max-w-[17rem] md:col-span-8 lg:col-span-3 lg:col-start-10 lg:max-w-none"
             style={{ "--delay": "200ms" }}
           >
             {/* Rounded corners plus a narrow feather on every edge, so the
