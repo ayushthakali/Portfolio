@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "./Link";
 
 const isExternal = (href = "") => /^https?:\/\//.test(href);
 
@@ -25,7 +26,7 @@ function TextLink({
       : "group-hover:translate-x-0.5";
 
   return (
-    <a
+    <Link
       href={href}
       className={cn(
         "group inline-flex items-center gap-1.5 text-foreground",
@@ -45,7 +46,7 @@ function TextLink({
         />
       )}
       {external && <span className="sr-only"> (opens in a new tab)</span>}
-    </a>
+    </Link>
   );
 }
 

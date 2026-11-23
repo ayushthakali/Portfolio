@@ -1,15 +1,44 @@
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Experience from "./components/Experience";
-import Projects from "./components/Portfolio";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Work from "./pages/Work";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+import { useLocation, takeNavType } from "./lib/router";
 import { useScrollReveal } from "./hooks/useScrollReveal";
 
+const SITE = "Ayush Thakali";
+
+const routes = {
+  "/": { page: Home, title: `${SITE} | Full Stack Developer` },
+  "/about": { page: About, title: `About | ${SITE}` },
+  "/work": { page: Work, title: `Work | ${SITE}` },
+  "/contact": { page: Contact, title: `Contact | ${SITE}` },
+};
+
+const notFound = { page: NotFound, title: `Page not found | ${SITE}` };
+
 function App() {
-  useScrollReveal();
+  const { pathname, hash } = useLocation();
+  const route = routes[pathname] ?? notFound;
+  const Page = route.page;
+
+  useEffect(() => {
+    document.title = route.title;
+  }, [route.title]);
+
+  // New page or in-page link: jump to the #target or the top.
+  // Back/forward (pop) keeps the browser's own scroll restoration.
+  useEffect(() => {
+    if (takeNavType() === "pop") return;
+    const target = hash && document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (target) target.scrollIntoView();
+    else window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname, hash]);
+
+  useScrollReveal(pathname);
 
   return (
     <>
@@ -20,13 +49,8 @@ function App() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main">
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
+      <main id="main" key={pathname}>
+        <Page />
       </main>
       <Footer />
     </>

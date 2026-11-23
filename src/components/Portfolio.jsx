@@ -1,76 +1,14 @@
-import { useState } from "react";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
-import SectionHeader from "@/components/ui/SectionHeader";
 import MonoLabel from "@/components/ui/MonoLabel";
 import TextLink from "@/components/ui/TextLink";
+import ProjectImage from "@/components/ProjectImage";
 import { projects } from "@/data/projects";
-import { certificates } from "@/data/certificates";
+import { projectSlug, splitTitle } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
 // The first two projects get the full-width featured treatment.
 const FEATURED_COUNT = 2;
-
-// "PIIRRO – Food & Music Discovery Platform" -> ["PIIRRO", "Food & ..."]
-const splitTitle = (title) => {
-  const [name, ...rest] = title.split(" – ");
-  return [name, rest.join(" – ")];
-};
-
-// WebP derivatives sit beside the original: /projects/piirro-960.webp etc.
-const webpSet = (src) => {
-  const base = src.replace(/\.(png|jpe?g)$/i, "");
-  return `${base}-960.webp 960w, ${base}-1600.webp 1600w`;
-};
-
-function ProjectImage({ project, name, sizes, className }) {
-  const [failed, setFailed] = useState(!project.image);
-
-  const frame = cn(
-    "relative block aspect-[1900/860] overflow-hidden border border-border bg-muted",
-    className
-  );
-
-  if (failed) {
-    return (
-      <div className={cn(frame, "flex items-end p-6")}>
-        <span className="font-serif text-h3 text-muted-foreground">{name}</span>
-      </div>
-    );
-  }
-
-  const image = (
-    <picture>
-      <source type="image/webp" srcSet={webpSet(project.image)} sizes={sizes} />
-      <img
-        src={project.image}
-        alt={`Screenshot of ${name}`}
-        width={1900}
-        height={860}
-        loading="lazy"
-        decoding="async"
-        onError={() => setFailed(true)}
-        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
-      />
-    </picture>
-  );
-
-  // The screenshot repeats the "Live site" link for pointer users only.
-  return project.live ? (
-    <a
-      href={project.live}
-      target="_blank"
-      rel="noopener noreferrer"
-      tabIndex={-1}
-      aria-hidden="true"
-      className={frame}
-    >
-      {image}
-    </a>
-  ) : (
-    <div className={frame}>{image}</div>
-  );
-}
 
 function ProjectMeta({ project, name }) {
   return (
@@ -90,7 +28,7 @@ function ProjectMeta({ project, name }) {
         ))}
       </ul>
 
-      <ul className="mt-6 space-y-2">
+      <ul className="mt-5 space-y-2">
         {project.features.map((feature) => (
           <li
             key={feature}
@@ -101,7 +39,7 @@ function ProjectMeta({ project, name }) {
         ))}
       </ul>
 
-      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+      <div className="mt-5 flex flex-wrap gap-x-6">
         {project.live && (
           <TextLink href={project.live} arrow className="min-h-11 text-sm font-medium">
             Live site<span className="sr-only">: {name}</span>
@@ -121,20 +59,21 @@ function FeaturedProject({ project, number }) {
   const [name, subtitle] = splitTitle(project.title);
 
   return (
-    <article data-reveal className="group">
+    <article id={projectSlug(project)} data-reveal className="group">
       <ProjectImage
         project={project}
         name={name}
-        sizes="(min-width: 88rem) 82rem, 100vw"
+        href={project.live}
+        sizes="(min-width: 80rem) 76rem, 100vw"
       />
 
-      <div className="grid-site mt-8 gap-y-6 md:mt-10">
+      <div className="grid-site mt-8 gap-y-6">
         <MonoLabel className="col-span-4 text-foreground md:col-span-2 lg:col-span-3">
           {number}
         </MonoLabel>
         <div className="col-span-4 md:col-span-6 lg:col-span-5">
-          <h3 className="font-serif text-h2">{name}</h3>
-          {subtitle && <p className="mt-3 font-medium">{subtitle}</p>}
+          <h2 className="font-serif text-h2">{name}</h2>
+          {subtitle && <p className="mt-2 font-medium">{subtitle}</p>}
           <p className="mt-4 max-w-[34rem] leading-relaxed text-muted-foreground">
             {project.description}
           </p>
@@ -151,10 +90,15 @@ function Project({ project, number, flip }) {
   const [name, subtitle] = splitTitle(project.title);
 
   return (
-    <article data-reveal className="group grid-site items-start gap-y-8">
+    <article
+      id={projectSlug(project)}
+      data-reveal
+      className="group grid-site items-start gap-y-7"
+    >
       <ProjectImage
         project={project}
         name={name}
+        href={project.live}
         sizes="(min-width: 64rem) 55vw, 100vw"
         className={cn(
           "col-span-4 md:col-span-8 lg:col-span-7",
@@ -168,12 +112,12 @@ function Project({ project, number, flip }) {
         )}
       >
         <MonoLabel className="text-foreground">{number}</MonoLabel>
-        <h3 className="mt-4 font-serif text-h3">{name}</h3>
-        {subtitle && <p className="mt-2 font-medium">{subtitle}</p>}
+        <h2 className="mt-3 font-serif text-h3">{name}</h2>
+        {subtitle && <p className="mt-1.5 font-medium">{subtitle}</p>}
         <p className="mt-4 leading-relaxed text-muted-foreground">
           {project.description}
         </p>
-        <div className="mt-6">
+        <div className="mt-5">
           <ProjectMeta project={project} name={name} />
         </div>
       </div>
@@ -181,6 +125,7 @@ function Project({ project, number, flip }) {
   );
 }
 
+/** Full project showcase for the Work page, in data order. */
 function Portfolio() {
   const featured = projects.slice(0, FEATURED_COUNT);
   const rest = projects.slice(FEATURED_COUNT);
@@ -188,30 +133,18 @@ function Portfolio() {
 
   return (
     <Section
-      id="projects"
       tone="dark"
-      labelledBy="projects-title"
-      className="pb-[var(--section-space)]"
+      aria-label="Projects"
+      className="pt-[calc(var(--section-space)*0.6)] pb-[var(--section-space)]"
     >
       <Container>
-        <SectionHeader
-          index="03"
-          label="Projects"
-          id="projects-title"
-          title={
-            <>
-              Selected <em className="italic">work</em>
-            </>
-          }
-        />
-
-        <div className="mt-12 space-y-20 md:mt-20 md:space-y-28">
+        <div className="space-y-16 md:space-y-24">
           {featured.map((project, i) => (
             <FeaturedProject key={project.id} project={project} number={number(i)} />
           ))}
         </div>
 
-        <div className="mt-20 space-y-16 border-t border-border pt-16 md:mt-28 md:space-y-24 md:pt-24">
+        <div className="mt-16 space-y-14 border-t border-border pt-14 md:mt-24 md:space-y-20 md:pt-20">
           {rest.map((project, i) => (
             <Project
               key={project.id}
@@ -220,33 +153,6 @@ function Portfolio() {
               flip={i % 2 === 1}
             />
           ))}
-        </div>
-
-        {/* Certifications */}
-        <div data-reveal className="grid-site mt-24 gap-y-6 md:mt-32">
-          <h3 className="col-span-4 md:col-span-2 lg:col-span-3">
-            <MonoLabel className="text-foreground">Certifications</MonoLabel>
-          </h3>
-          <ul className="col-span-4 border-t border-border md:col-span-6 lg:col-span-9">
-            {certificates.map((cert) => (
-              <li
-                key={cert.id}
-                className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-1 border-b border-border py-2 md:grid-cols-[minmax(0,1fr)_14rem_auto]"
-              >
-                <p className="font-medium">{cert.title}</p>
-                <MonoLabel className="order-3 col-span-2 md:order-none md:col-span-1">
-                  {cert.issuer} / {cert.date}
-                </MonoLabel>
-                <TextLink
-                  href={cert.credentialUrl}
-                  arrow
-                  className="min-h-11 text-sm"
-                >
-                  View<span className="sr-only"> {cert.title} credential</span>
-                </TextLink>
-              </li>
-            ))}
-          </ul>
         </div>
       </Container>
     </Section>

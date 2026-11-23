@@ -2,10 +2,10 @@ import { useEffect } from "react";
 
 /**
  * Adds .is-revealed to every [data-reveal] element the first time it enters
- * the viewport. Styling lives in index.css; without IntersectionObserver
- * everything is revealed immediately.
+ * the viewport. Re-runs when `key` (the current page) changes. Styling lives
+ * in index.css; without IntersectionObserver everything is revealed at once.
  */
-export function useScrollReveal() {
+export function useScrollReveal(key) {
   useEffect(() => {
     const elements = document.querySelectorAll("[data-reveal]:not(.is-revealed)");
     const reveal = (el) => el.classList.add("is-revealed");
@@ -29,5 +29,5 @@ export function useScrollReveal() {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [key]);
 }

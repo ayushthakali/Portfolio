@@ -2,25 +2,27 @@ import { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import Link from "@/components/ui/Link";
 import MonoLabel from "@/components/ui/MonoLabel";
 import TextLink from "@/components/ui/TextLink";
-import { useActiveSection } from "@/hooks/useActiveSection";
+import Wordmark from "@/components/Wordmark";
+import { useLocation } from "@/lib/router";
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
+const pages = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/work", label: "Work" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const getScrolled = () => typeof window !== "undefined" && window.scrollY > 8;
 
 function Navbar() {
+  const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(getScrolled);
-  const active = useActiveSection(["top", ...links.map((link) => link.id)]);
   const toggleRef = useRef(null);
 
   useEffect(() => {
@@ -54,52 +56,46 @@ function Navbar() {
   }, [open]);
 
   const close = () => setOpen(false);
-  const isActive = (id) => active === id;
+  const isActive = (href) => pathname === href;
+  const current = (href) => (isActive(href) ? "page" : undefined);
 
   return (
     <header
+      id="top"
       className={cn(
-        "motion-fade sticky top-0 z-50 border-b transition-colors duration-300",
-        open || scrolled
-          ? "border-border bg-background"
-          : "border-transparent bg-background"
+        "motion-fade sticky top-0 z-50 border-b bg-background transition-colors duration-300",
+        open || scrolled ? "border-border" : "border-transparent"
       )}
     >
       <Container className="flex h-[var(--nav-height)] items-center justify-between gap-6">
-        <a
-          href="#top"
-          onClick={close}
-          className="-my-2 py-2 font-serif text-[1.625rem] leading-none tracking-[-0.01em]"
-        >
-          {profile.name}
-        </a>
+        <Wordmark onClick={close} />
 
         {/* Desktop */}
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-9">
-            {links.slice(0, -1).map((link) => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  aria-current={isActive(link.id) ? "true" : undefined}
+            {pages.slice(1, -1).map((page) => (
+              <li key={page.href}>
+                <Link
+                  href={page.href}
+                  aria-current={current(page.href)}
                   className={cn(
                     "relative inline-flex h-11 items-center text-sm font-medium transition-colors duration-200",
                     "before:absolute before:top-1/2 before:-left-3.5 before:size-1.5 before:-translate-y-1/2 before:rounded-full before:bg-accent before:transition-transform before:duration-300",
-                    isActive(link.id)
+                    isActive(page.href)
                       ? "text-foreground before:scale-100"
                       : "text-muted-foreground before:scale-0 hover:text-foreground"
                   )}
                 >
-                  {link.label}
-                </a>
+                  {page.label}
+                </Link>
               </li>
             ))}
             <li>
               <Button
-                href="#contact"
-                variant={isActive("contact") ? "primary" : "secondary"}
+                href="/contact"
+                variant={isActive("/contact") ? "primary" : "secondary"}
                 size="sm"
-                aria-current={isActive("contact") ? "true" : undefined}
+                aria-current={current("/contact")}
               >
                 Contact
               </Button>
@@ -139,24 +135,24 @@ function Navbar() {
           className="flex min-h-full flex-col justify-between gap-12 py-8"
         >
           <ol className="border-t border-border">
-            {links.map((link, index) => (
-              <li key={link.id} className="border-b border-border">
-                <a
-                  href={`#${link.id}`}
+            {pages.map((page, index) => (
+              <li key={page.href} className="border-b border-border">
+                <Link
+                  href={page.href}
                   onClick={close}
-                  aria-current={isActive(link.id) ? "true" : undefined}
+                  aria-current={current(page.href)}
                   className="flex items-baseline gap-5 py-5"
                 >
-                  <MonoLabel className={cn(isActive(link.id) && "text-accent")}>
+                  <MonoLabel className={cn(isActive(page.href) && "text-accent")}>
                     {String(index + 1).padStart(2, "0")}
                   </MonoLabel>
-                  <span className="font-serif text-h3">{link.label}</span>
-                </a>
+                  <span className="font-serif text-h2">{page.label}</span>
+                </Link>
               </li>
             ))}
           </ol>
 
-          <div className="flex flex-col items-start gap-3">
+          <div className="flex flex-col items-start gap-1">
             <MonoLabel>Get in touch</MonoLabel>
             <TextLink href={`mailto:${profile.email}`} className="min-h-11 text-lg">
               {profile.email}

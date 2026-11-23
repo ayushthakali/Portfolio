@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import Link from "./Link";
 
 const buttonVariants = cva(
   [
@@ -30,7 +31,7 @@ const buttonVariants = cva(
 );
 
 /**
- * Button or link styled as a button. Pass `href` to render an <a>.
+ * Button or link styled as a button. Pass `href` to render a link.
  * `icon` renders after the label and nudges on hover.
  */
 function Button({
@@ -59,9 +60,9 @@ function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes} {...props}>
+      <Link href={href} className={classes} {...props}>
         {content}
-      </a>
+      </Link>
     );
   }
 

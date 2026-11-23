@@ -91,27 +91,31 @@
   --color-ring: #315c4c;
 
   /* Fluid type scale */
-  --text-display: clamp(4rem, 1.5rem + 14vw, 12.5rem);
-  --text-display--line-height: 0.9;
+  --text-display: clamp(2.75rem, 1.25rem + 6.5vw, 7.5rem);
+  --text-display--line-height: 0.92;
   --text-display--letter-spacing: -0.025em;
 
-  --text-h2: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
-  --text-h2--line-height: 0.98;
-  --text-h2--letter-spacing: -0.02em;
+  --text-h1: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+  --text-h1--line-height: 0.98;
+  --text-h1--letter-spacing: -0.02em;
 
-  --text-h3: clamp(1.75rem, 1.35rem + 1.6vw, 2.75rem);
-  --text-h3--line-height: 1.05;
+  --text-h2: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  --text-h2--line-height: 1.02;
+  --text-h2--letter-spacing: -0.015em;
+
+  --text-h3: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
+  --text-h3--line-height: 1.1;
   --text-h3--letter-spacing: -0.01em;
 
-  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
-  --text-lead--line-height: 1.55;
+  --text-lead: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --text-lead--line-height: 1.6;
 
   --text-label: 0.75rem;
   --text-label--line-height: 1.4;
   --text-label--letter-spacing: 0.08em;
 
   /* Layout */
-  --container-site: 88rem;
+  --container-site: 80rem;
   --container-prose: 38rem;
 
   /* Motion */
@@ -125,7 +129,7 @@
   /* Spacing and layout rhythm */
   --gutter: clamp(1.25rem, 0.75rem + 2.5vw, 3rem);
   --grid-gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
-  --section-space: clamp(5rem, 3rem + 8vw, 10rem);
+  --section-space: clamp(4rem, 2.5rem + 5vw, 7rem);
   --nav-height: 4.5rem;
 
   /* Motion durations */

@@ -9,7 +9,7 @@ function Skills() {
     <Section id="skills" labelledBy="skills-title">
       <Container>
         <SectionHeader
-          index="04"
+          index="02"
           label="Skills"
           id="skills-title"
           title={

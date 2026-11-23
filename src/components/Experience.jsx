@@ -45,7 +45,7 @@ function Experience() {
     <Section id="experience" labelledBy="experience-title">
       <Container>
         <SectionHeader
-          index="02"
+          index="01"
           label="Experience"
           id="experience-title"
           title={

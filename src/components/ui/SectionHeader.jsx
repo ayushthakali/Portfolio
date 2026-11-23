@@ -5,7 +5,18 @@ import MonoLabel from "./MonoLabel";
  * Editorial section opener: thin rule, numbered mono label in the left
  * columns, serif heading and optional intro in the right columns.
  */
-function SectionHeader({ index, label, title, intro, id, className }) {
+function SectionHeader({
+  index,
+  label,
+  title,
+  intro,
+  action,
+  id,
+  as = "h2",
+  className,
+}) {
+  const Heading = as;
+
   return (
     <header
       data-reveal
@@ -21,14 +32,15 @@ function SectionHeader({ index, label, title, intro, id, className }) {
       </MonoLabel>
 
       <div className="col-span-4 md:col-span-6 lg:col-span-9">
-        <h2 id={id} className="text-h2">
+        <Heading id={id} className={as === "h1" ? "text-h1" : "text-h2"}>
           {title}
-        </h2>
+        </Heading>
         {intro && (
           <p className="mt-6 max-w-prose text-lead text-muted-foreground md:mt-8">
             {intro}
           </p>
         )}
+        {action && <div className="mt-6">{action}</div>}
       </div>
     </header>
   );

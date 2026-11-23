@@ -62,27 +62,31 @@ function Contact() {
   ];
 
   return (
-    <Section id="contact" tone="dark" labelledBy="contact-title">
+    <Section
+      id="contact"
+      labelledBy="contact-title"
+      className="pt-12 pb-[var(--section-space)] md:pt-16"
+    >
       <Container>
-        <div className="border-t border-border pt-6 md:pt-8">
-          <MonoLabel>
-            <span className="text-foreground">05</span>
-            <span aria-hidden="true"> / </span>Contact
-          </MonoLabel>
+        <div className="motion-rise border-t border-border pt-6 md:pt-8">
+          <MonoLabel>Contact</MonoLabel>
         </div>
 
         <div className="grid-site mt-10 gap-y-10 md:mt-14">
-          <div data-reveal className="col-span-4 md:col-span-8 lg:col-span-10">
-            <h2 id="contact-title" className="text-display">
+          <div
+            className="motion-rise col-span-4 md:col-span-8 lg:col-span-10"
+            style={{ "--delay": "80ms" }}
+          >
+            <h1 id="contact-title" className="text-h1">
               Let’s <em className="italic">connect.</em>
-            </h2>
-            <p className="mt-8 max-w-[34rem] text-lead text-muted-foreground">
+            </h1>
+            <p className="mt-6 max-w-[34rem] text-lead text-muted-foreground">
               I’m always interested in hearing about new opportunities,
               collaborations, and innovative projects.
             </p>
             <a
               href={`mailto:${profile.email}`}
-              className="group mt-10 inline-flex items-center gap-3 font-serif text-[clamp(1.5rem,1rem+2.6vw,3rem)] leading-tight [overflow-wrap:anywhere]"
+              className="group mt-8 inline-flex items-center gap-3 font-serif text-[clamp(1.375rem,1rem+1.6vw,2.25rem)] leading-tight [overflow-wrap:anywhere]"
             >
               <span className="link-underline">{profile.email}</span>
               <ArrowUpRight
@@ -93,7 +97,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="grid-site mt-20 gap-y-16 md:mt-28">
+        <div className="grid-site mt-16 gap-y-14 md:mt-20">
           {/* Details and profiles */}
           <div
             data-reveal
@@ -115,7 +119,7 @@ function Contact() {
             </dl>
 
             <div>
-              <MonoLabel as="h3">Elsewhere</MonoLabel>
+              <MonoLabel as="h2">Elsewhere</MonoLabel>
               <ul className="mt-2">
                 {profile.socials.map((social) => (
                   <li key={social.label}>
@@ -134,7 +138,7 @@ function Contact() {
             style={{ "--delay": "120ms" }}
             className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6"
           >
-            <h3 className="font-serif text-h3">Have a message?</h3>
+            <h2 className="font-serif text-h3">Have a message?</h2>
             <form onSubmit={handleSubmit} className="mt-8 space-y-8">
               <div className="grid gap-8 sm:grid-cols-2">
                 <Field

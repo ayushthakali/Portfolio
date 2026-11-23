@@ -6,77 +6,87 @@ import Button from "@/components/ui/Button";
 import TextLink from "@/components/ui/TextLink";
 import LocalTime from "@/components/LocalTime";
 import { profile } from "@/data/profile";
-import { currentRole } from "@/data/experience";
+import { currentRole, experiences } from "@/data/experience";
+import { projects } from "@/data/projects";
+
+const firstYear = experiences[0]?.date.match(/\d{4}/)?.[0];
+
+const facts = [
+  currentRole && {
+    label: "Currently",
+    value: `${currentRole.role}, ${currentRole.company}`,
+  },
+  {
+    label: "Experience",
+    value: `${experiences.length} roles since ${firstYear}`,
+  },
+  {
+    label: "Work",
+    value: `${String(projects.length).padStart(2, "0")} selected projects`,
+  },
+  { label: "Core stack", value: "React, Next.js, Node.js" },
+].filter(Boolean);
 
 function Hero() {
   const { photo } = profile;
 
   return (
     <Section
-      id="top"
       labelledBy="hero-title"
       spacing={false}
-      className="pt-6 pb-[calc(var(--section-space)*0.5)] md:pt-10"
+      className="pt-10 pb-[calc(var(--section-space)*0.6)] md:pt-16"
     >
       <Container>
-        {/* Meta line */}
-        <div className="motion-rise grid-site gap-y-2 border-b border-border pb-4">
-          <MonoLabel className="col-span-4 text-foreground md:col-span-3">
-            {profile.role}
-          </MonoLabel>
-          <MonoLabel className="col-span-2 lg:col-span-3">
-            {profile.location}
-          </MonoLabel>
-          <LocalTime className="col-span-2 text-right md:col-span-3 lg:col-span-6" />
-        </div>
+        <div className="grid-site gap-y-10 lg:items-end">
+          <div className="col-span-4 md:col-span-8 lg:col-span-8">
+            <MonoLabel as="p" className="motion-rise flex flex-wrap gap-x-3">
+              <span className="text-foreground">{profile.role}</span>
+              <span aria-hidden="true">/</span>
+              <span>{profile.location}</span>
+            </MonoLabel>
 
-        {/* Name: second line aligns with the text column below */}
-        <h1
-          id="hero-title"
-          className="mt-12 text-display md:mt-16 lg:mt-24"
-        >
-          <span
-            className="motion-rise block"
-            style={{ "--delay": "100ms" }}
-          >
-            {profile.firstName}
-          </span>{" "}
-          <span
-            style={{ "--delay": "220ms" }}
-            className="motion-rise block pl-[14%] italic md:pl-[calc((100%_+_var(--grid-gap))*3/8)] lg:pl-[calc((100%_+_var(--grid-gap))/3)]">
-            {profile.lastName}
-          </span>
-        </h1>
-
-        <div className="grid-site mt-12 gap-y-10 md:mt-16 lg:mt-20">
-          <div
-            className="motion-rise col-span-4 md:col-span-5 md:col-start-4 lg:col-span-6 lg:col-start-5"
-            style={{ "--delay": "380ms" }}
-          >
-            <p className="max-w-[36rem] text-lead">{profile.summary}</p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="#projects" icon={ArrowRight}>
-                View Projects
-              </Button>
-              <Button href="#contact" variant="secondary">
-                Contact Me
-              </Button>
-            </div>
-
-            <TextLink
-              href={profile.resume}
-              download
-              icon={Download}
-              className="mt-4 min-h-11 text-sm font-medium"
+            <h1
+              id="hero-title"
+              className="motion-rise mt-6 text-display"
+              style={{ "--delay": "80ms" }}
             >
-              Download resume (PDF)
-            </TextLink>
+              {profile.firstName}{" "}
+              <em className="italic">{profile.lastName}</em>
+            </h1>
+
+            <p
+              className="motion-rise mt-6 max-w-[38rem] text-lead text-muted-foreground md:mt-8"
+              style={{ "--delay": "160ms" }}
+            >
+              {profile.summary}
+            </p>
+
+            <div
+              className="motion-rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-4"
+              style={{ "--delay": "240ms" }}
+            >
+              <div className="flex flex-wrap gap-3">
+                <Button href="/work" icon={ArrowRight}>
+                  View work
+                </Button>
+                <Button href="/contact" variant="secondary">
+                  Contact me
+                </Button>
+              </div>
+              <TextLink
+                href={profile.resume}
+                download
+                icon={Download}
+                className="min-h-11 text-sm font-medium"
+              >
+                Download resume (PDF)
+              </TextLink>
+            </div>
           </div>
 
           <figure
-            className="motion-rise col-span-2 md:col-span-3 md:col-start-1 md:row-start-1 lg:col-span-3"
-            style={{ "--delay": "300ms" }}
+            className="motion-rise col-span-2 md:col-span-3 lg:col-span-3 lg:col-start-10"
+            style={{ "--delay": "200ms" }}
           >
             <picture>
               <source srcSet={photo.webp} type="image/webp" />
@@ -89,23 +99,31 @@ function Hero() {
                 className="aspect-[4/5] w-full bg-muted object-cover object-[50%_15%]"
               />
             </picture>
+            <figcaption className="mt-3 flex justify-between gap-4">
+              <MonoLabel>{profile.location.split(",")[0]}</MonoLabel>
+              <LocalTime />
+            </figcaption>
           </figure>
-
-          {currentRole && (
-            <dl
-              style={{ "--delay": "500ms" }}
-              className="motion-rise col-span-2 self-end md:col-span-5 md:col-start-4 lg:col-span-2 lg:col-start-11">
-              <MonoLabel as="dt">Currently</MonoLabel>
-              <dd className="mt-2 text-sm leading-relaxed">
-                {currentRole.role}
-                <br />
-                <span className="text-muted-foreground">
-                  at {currentRole.company}
-                </span>
-              </dd>
-            </dl>
-          )}
         </div>
+
+        <dl
+          className="motion-rise mt-14 grid grid-cols-2 border-t border-border md:mt-20 md:grid-cols-4"
+          style={{ "--delay": "320ms" }}
+        >
+          {facts.map((fact, i) => (
+            <div
+              key={fact.label}
+              className={`border-b border-border py-5 md:border-b-0 ${
+                i % 2 === 1 ? "pl-4 md:pl-5" : "pr-4 md:pr-5"
+              } ${i > 0 ? "md:border-l md:pl-5" : ""}`}
+            >
+              <MonoLabel as="dt">{fact.label}</MonoLabel>
+              <dd className="mt-2 text-sm leading-snug font-medium md:text-base">
+                {fact.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </Container>
     </Section>
   );
